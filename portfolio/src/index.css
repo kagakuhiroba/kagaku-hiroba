@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Yuji Syuku';
+  src: url('/fonts/YujiSyuku-Latin.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --color-blue: #1e6fd9;
   --color-blue-dark: #144f9e;
@@ -98,28 +106,27 @@ ul {
   background: linear-gradient(180deg, var(--color-bg-tint) 0%, #ffffff 100%);
 }
 
-.hero__decor {
+.hero__splatter {
   position: absolute;
-  border-radius: 50%;
-  filter: blur(0px);
-  opacity: 0.18;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: 0;
+  pointer-events: none;
 }
 
-.hero__decor--blue {
-  width: 320px;
-  height: 320px;
-  background: var(--color-blue);
-  top: -120px;
-  left: -80px;
+.hero__splatter-blue path,
+.hero__splatter-blue circle,
+.hero__splatter-blue ellipse {
+  fill: var(--color-blue);
+  opacity: 0.85;
 }
 
-.hero__decor--orange {
-  width: 260px;
-  height: 260px;
-  background: var(--color-orange);
-  bottom: -100px;
-  right: -60px;
+.hero__splatter-orange path,
+.hero__splatter-orange circle,
+.hero__splatter-orange ellipse {
+  fill: var(--color-orange);
+  opacity: 0.85;
 }
 
 .hero__content {
@@ -138,13 +145,32 @@ ul {
 }
 
 .hero__title {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 900;
-  color: var(--color-text);
+  font-family: 'Yuji Syuku', cursive;
+  font-size: clamp(3.4rem, 11vw, 7.5rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
 }
 
-.hero__title span {
+.hero__title-part {
+  text-shadow:
+    -1.5px -1.5px 0 #262220,
+    1.5px -1.5px 0 #262220,
+    -1.5px 1.5px 0 #262220,
+    1.5px 1.5px 0 #262220,
+    0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.hero__title-part--su {
   color: var(--color-orange);
+}
+
+.hero__title-part--mi {
+  color: var(--color-blue);
+}
+
+.hero__title-part--channel {
+  color: #ffffff;
 }
 
 .hero__lead {

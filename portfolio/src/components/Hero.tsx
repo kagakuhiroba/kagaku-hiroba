@@ -1,14 +1,16 @@
 import { CameraIcon, VideoIcon } from './CameraIcon'
+import { InkSplatter } from './InkSplatter'
 
 export function Hero() {
   return (
     <section id="top" className="hero">
-      <div className="hero__decor hero__decor--blue" />
-      <div className="hero__decor hero__decor--orange" />
+      <InkSplatter />
       <div className="hero__content">
         <p className="hero__eyebrow">Photographer / Videographer</p>
         <h1 className="hero__title">
-          sumi <span>channel</span>
+          <span className="hero__title-part hero__title-part--su">su</span>
+          <span className="hero__title-part hero__title-part--mi">mi</span>{' '}
+          <span className="hero__title-part hero__title-part--channel">channel</span>
         </h1>
         <p className="hero__lead">
           写真と映像で、日常のワクワクする瞬間を切り取っています。
