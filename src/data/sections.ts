@@ -58,7 +58,7 @@ export const sections: SiteSection[] = [
       '【主催】あいたひめ（相田日芽）',
       '「心に寄り添うあたたかい歌で街に笑顔を」をテーマに、故郷「函館」にて活動中のシンガーソングライター。道南唯一の児童合唱団「函館少年少女合唱団」副指揮者。2022年より「歌楽ひろば」を主催し、函館市内各所・北斗市など道南にて活動中。',
     ],
-    image: asset('images/karagaku-hiroba-hall.jpg'),
+    image: asset('images/karagaku-hiroba-collage.jpg'),
     imageFit: 'cover',
   },
   {
