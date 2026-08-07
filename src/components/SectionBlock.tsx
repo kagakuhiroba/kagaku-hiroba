@@ -26,6 +26,13 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
             ))}
           </div>
         )}
+        {section.gallery && section.gallery.length > 0 && (
+          <div className="section__gallery">
+            {section.gallery.map((photo) => (
+              <img key={photo.src} src={photo.src} alt={photo.alt} loading="lazy" />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

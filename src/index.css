@@ -331,6 +331,21 @@ a {
   box-shadow: 0 16px 28px rgba(160, 114, 196, 0.38);
 }
 
+.section__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.section__gallery img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 8px 18px rgba(58, 46, 38, 0.14);
+}
+
 /* ---------- Footer ---------- */
 
 .site-footer {

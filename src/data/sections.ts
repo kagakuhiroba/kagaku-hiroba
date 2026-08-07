@@ -3,6 +3,11 @@ export interface ContactLink {
   href: string;
 }
 
+export interface GalleryPhoto {
+  src: string;
+  alt: string;
+}
+
 export interface SiteSection {
   id: string;
   eyebrow: string;
@@ -12,6 +17,7 @@ export interface SiteSection {
   image: string;
   imageFit: 'cover' | 'contain';
   links?: ContactLink[];
+  gallery?: GalleryPhoto[];
 }
 
 // GitHub Pagesなどサブパス配信時にも画像が解決できるよう、Viteのbase URLを付与する。
@@ -38,7 +44,7 @@ export const sections: SiteSection[] = [
       '2025年リリース、オリジナルアルバム「わたしのうた I」各種サブスクにて配信中。',
       '日々歌の力を感じながら心を込めて歌っています。',
     ],
-    image: asset('images/karagaku-hiroba-stage.jpg'),
+    image: asset('images/aitahime-portrait-goryokaku.jpg'),
     imageFit: 'cover',
   },
   {
@@ -70,8 +76,13 @@ export const sections: SiteSection[] = [
     title: '活動実績',
     lead: 'これまでの開催実績は今後追加予定です。',
     body: [],
-    image: asset('images/karagaku-hiroba-stage.jpg'),
+    image: asset('images/performance-red-blazer.jpg'),
     imageFit: 'cover',
+    gallery: [
+      { src: asset('images/performance-blue-light.jpg'), alt: '歌楽ひろばでの演奏の様子' },
+      { src: asset('images/performance-cafe.jpg'), alt: '小さな会場でのライブの様子' },
+      { src: asset('images/performance-christmas.jpg'), alt: 'クリスマスイベントでの演奏の様子' },
+    ],
   },
   {
     id: 'contact',
