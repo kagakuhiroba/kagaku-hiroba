@@ -9,13 +9,16 @@ export interface SiteSection {
   imageFit: 'cover' | 'contain';
 }
 
+// GitHub Pagesなどサブパス配信時にも画像が解決できるよう、Viteのbase URLを付与する。
+const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+
 export const heroImage = {
-  src: '/images/karagaku-hiroba-stage.jpg',
+  src: asset('images/karagaku-hiroba-stage.jpg'),
   alt: '「歌楽ひろば」のステージに立つメンバーと客席の観客たち',
 };
 
 export const logoImage = {
-  src: '/images/karagaku-hiroba-logo.jpg',
+  src: asset('images/karagaku-hiroba-logo.jpg'),
   alt: '歌楽ひろば ロゴ「歌でいきいき、楽しい時間を」',
 };
 
@@ -26,7 +29,7 @@ export const sections: SiteSection[] = [
     title: '人物紹介',
     lead: '歌手・あいたひめのプロフィールです。',
     body: ['経歴やプロフィール写真は今後追加予定です。'],
-    image: '/images/aitahime-portrait.jpg',
+    image: asset('images/aitahime-portrait.jpg'),
     imageAlt: '歌手 あいたひめ',
     imageFit: 'cover',
   },
@@ -36,7 +39,7 @@ export const sections: SiteSection[] = [
     title: '歌楽ひろば とは',
     lead: '「歌でいきいき、楽しい時間を」をコンセプトにした活動です。',
     body: ['活動の概要や想いは今後追加予定です。'],
-    image: '/images/karagaku-hiroba-logo.jpg',
+    image: asset('images/karagaku-hiroba-logo.jpg'),
     imageAlt: '歌楽ひろば ロゴ',
     imageFit: 'contain',
   },
@@ -46,7 +49,7 @@ export const sections: SiteSection[] = [
     title: '今後の活動予定',
     lead: '開催予定のイベント情報は今後追加予定です。',
     body: [],
-    image: '/images/karagaku-hiroba-stage.jpg',
+    image: asset('images/karagaku-hiroba-stage.jpg'),
     imageAlt: '歌楽ひろば ステージの様子',
     imageFit: 'cover',
   },
@@ -56,7 +59,7 @@ export const sections: SiteSection[] = [
     title: '活動実績',
     lead: 'これまでの開催実績は今後追加予定です。',
     body: [],
-    image: '/images/aitahime-portrait.jpg',
+    image: asset('images/aitahime-portrait.jpg'),
     imageAlt: 'あいたひめ',
     imageFit: 'cover',
   },
@@ -66,7 +69,7 @@ export const sections: SiteSection[] = [
     title: '問い合わせ先',
     lead: '出演依頼・お問い合わせ方法は今後追加予定です。',
     body: [],
-    image: '/images/karagaku-hiroba-logo.jpg',
+    image: asset('images/karagaku-hiroba-logo.jpg'),
     imageAlt: '歌楽ひろば ロゴ',
     imageFit: 'contain',
   },
