@@ -17,6 +17,15 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
             ))}
           </div>
         )}
+        {section.links && section.links.length > 0 && (
+          <div className="section__links">
+            {section.links.map((link) => (
+              <a key={link.href} className="section__link" href={link.href}>
+                {link.label}
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

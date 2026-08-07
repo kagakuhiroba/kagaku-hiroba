@@ -1,3 +1,8 @@
+export interface ContactLink {
+  label: string;
+  href: string;
+}
+
 export interface SiteSection {
   id: string;
   eyebrow: string;
@@ -6,6 +11,7 @@ export interface SiteSection {
   body: string[];
   image: string;
   imageFit: 'cover' | 'contain';
+  links?: ContactLink[];
 }
 
 // GitHub Pagesなどサブパス配信時にも画像が解決できるよう、Viteのbase URLを付与する。
@@ -71,8 +77,12 @@ export const sections: SiteSection[] = [
     id: 'contact',
     eyebrow: '05 / Contact',
     title: '問い合わせ先',
-    lead: '出演依頼・お問い合わせ方法は今後追加予定です。',
-    body: [],
+    lead: '◆お問い合わせ、ご依頼◆',
+    body: ['あいたひめ（相田日芽）'],
+    links: [
+      { label: 'TEL：090-6876-5725', href: 'tel:09068765725' },
+      { label: 'Mail：hakodate.aita@gmail.com', href: 'mailto:hakodate.aita@gmail.com' },
+    ],
     image: asset('images/karagaku-hiroba-logo.jpg'),
     imageFit: 'contain',
   },
