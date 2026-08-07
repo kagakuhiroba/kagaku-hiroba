@@ -76,7 +76,7 @@ export const sections: SiteSection[] = [
     title: '活動実績',
     lead: 'これまでの開催実績は今後追加予定です。',
     body: [],
-    image: asset('images/karagaku-hiroba-stage.jpg'),
+    image: asset('images/performance-goryokaku-festival.jpg'),
     imageFit: 'cover',
     gallery: [
       { src: asset('images/performance-blue-light.jpg'), alt: '歌楽ひろばでの演奏の様子' },
