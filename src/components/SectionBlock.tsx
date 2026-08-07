@@ -9,12 +9,6 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
       <div ref={ref} className={`section__inner${visible ? ' is-visible' : ''}`}>
         <p className="section__eyebrow">{section.eyebrow}</p>
         <h2 className="section__title">{section.title}</h2>
-        <img
-          className="section__image-mobile"
-          src={section.image}
-          alt={section.imageAlt}
-          loading="lazy"
-        />
         <p className="section__lead">{section.lead}</p>
         {section.body.length > 0 && (
           <div className="section__body">
