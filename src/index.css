@@ -340,7 +340,8 @@ a {
 .section__gallery img {
   width: 100%;
   aspect-ratio: 1 / 1;
-  object-fit: cover;
+  object-fit: contain;
+  background: rgba(58, 46, 38, 0.05);
   border-radius: 14px;
   box-shadow: 0 8px 18px rgba(58, 46, 38, 0.14);
 }
