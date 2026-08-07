@@ -202,31 +202,75 @@ a {
 }
 
 /* ---------- Scroll gallery ---------- */
+/* 画像パネルはsticky指定でビューポートに固定され、下のセクションが
+   アクティブになるたびにopacityがクロスフェードする。 */
 
 .gallery {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-.gallery__sticky {
-  display: none;
-}
-
-.gallery__content {
   display: flex;
   flex-direction: column;
 }
 
-.section {
-  padding: clamp(3rem, 10vh, 6rem) clamp(1.5rem, 6vw, 4rem);
+.gallery__sticky {
+  position: sticky;
+  top: var(--nav-height);
+  z-index: 0;
+  height: calc(100vh - var(--nav-height));
+  overflow: hidden;
+  background: #efe6f6;
+}
+
+.gallery__image {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.gallery__image--cover {
+  background-size: cover;
+  background-position: center;
+}
+
+.gallery__image--contain {
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.gallery__image--contain img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.gallery__image.is-active {
+  opacity: 1;
+}
+
+.gallery__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  /* 画像パネルの上に最初のカードが重なるよう、画像の高さぶん引き上げる */
+  margin-top: calc(-100vh + var(--nav-height));
+}
+
+.section {
+  padding: clamp(2.5rem, 8vh, 6rem) clamp(1.5rem, 6vw, 4rem);
+  display: flex;
+  align-items: center;
+  min-height: 70vh;
   scroll-margin-top: var(--nav-height);
 }
 
 .section__inner {
   max-width: 640px;
   margin: 0 auto;
+  padding: clamp(1.5rem, 5vw, 2.25rem);
+  border-radius: 24px;
+  background: rgba(255, 250, 243, 0.94);
+  box-shadow: 0 20px 45px rgba(58, 46, 38, 0.18);
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.7s ease, transform 0.7s ease;
@@ -248,15 +292,6 @@ a {
 .section__title {
   margin: 0 0 1rem;
   font-size: clamp(1.6rem, 4vw, 2.2rem);
-}
-
-.section__image-mobile {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: 16px;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 12px 32px rgba(58, 46, 38, 0.12);
 }
 
 .section__lead {
@@ -293,57 +328,37 @@ a {
   color: var(--color-text-soft);
 }
 
-/* ---------- Desktop: sticky crossfading image panel ---------- */
+/* ---------- Desktop: side-by-side layout ---------- */
 
 @media (min-width: 900px) {
   .gallery {
+    display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: start;
   }
 
   .gallery__sticky {
-    display: block;
-    position: sticky;
     top: 0;
     height: 100vh;
-    overflow: hidden;
-    background: #efe6f6;
-  }
-
-  .gallery__image {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 1s ease;
-  }
-
-  .gallery__image--cover {
-    background-size: cover;
-    background-position: center;
   }
 
   .gallery__image--contain {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 3rem;
   }
 
-  .gallery__image--contain img {
-    max-width: 100%;
-    max-height: 60vh;
-  }
-
-  .gallery__image.is-active {
-    opacity: 1;
-  }
-
-  .section__image-mobile {
-    display: none;
+  .gallery__content {
+    margin-top: 0;
   }
 
   .section {
     min-height: 100vh;
+  }
+
+  .section__inner {
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
   }
 }
 
