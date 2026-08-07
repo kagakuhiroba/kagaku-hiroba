@@ -76,12 +76,13 @@ export const sections: SiteSection[] = [
     title: '活動実績',
     lead: 'これまでの開催実績は今後追加予定です。',
     body: [],
-    image: asset('images/performance-red-blazer.jpg'),
+    image: asset('images/karagaku-hiroba-stage.jpg'),
     imageFit: 'cover',
     gallery: [
       { src: asset('images/performance-blue-light.jpg'), alt: '歌楽ひろばでの演奏の様子' },
       { src: asset('images/performance-cafe.jpg'), alt: '小さな会場でのライブの様子' },
       { src: asset('images/performance-christmas.jpg'), alt: 'クリスマスイベントでの演奏の様子' },
+      { src: asset('images/performance-red-blazer.jpg'), alt: 'ステージでの演奏の様子' },
     ],
   },
   {
