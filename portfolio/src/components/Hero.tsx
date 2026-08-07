@@ -1,18 +1,11 @@
 import { CameraIcon, VideoIcon } from './CameraIcon'
-import { InkSplash } from './InkSplatter'
+import { CornerSplash } from './InkSplatter'
 
 export function Hero() {
   return (
     <section id="top" className="hero">
-      <svg
-        className="hero__splatter"
-        viewBox="0 0 1200 700"
-        preserveAspectRatio="xMidYMid slice"
-        aria-hidden="true"
-      >
-        <InkSplash x={150} y={110} scale={2.9} rotate={-10} color="blue" />
-        <InkSplash x={1050} y={560} scale={2.9} rotate={14} color="orange" />
-      </svg>
+      <CornerSplash position="hero-tl" color="blue" size={420} />
+      <CornerSplash position="hero-br" color="orange" size={420} />
       <div className="hero__content">
         <p className="hero__eyebrow">Photographer / Videographer</p>
         <h1 className="hero__title">
