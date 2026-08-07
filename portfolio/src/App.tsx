@@ -5,10 +5,12 @@ import { Skills } from './components/Skills'
 import { Works } from './components/Works'
 import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
+import { InkSplatterDefs } from './components/InkSplatter'
 
 function App() {
   return (
     <>
+      <InkSplatterDefs />
       <Header />
       <main>
         <Hero />

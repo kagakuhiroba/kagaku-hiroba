@@ -115,18 +115,42 @@ ul {
   pointer-events: none;
 }
 
-.hero__splatter-blue path,
-.hero__splatter-blue circle,
-.hero__splatter-blue ellipse {
-  fill: var(--color-blue);
+.ink-splash {
   opacity: 0.85;
 }
 
-.hero__splatter-orange path,
-.hero__splatter-orange circle,
-.hero__splatter-orange ellipse {
+.ink-splash--blue {
+  fill: var(--color-blue);
+}
+
+.ink-splash--orange {
   fill: var(--color-orange);
-  opacity: 0.85;
+}
+
+.corner-splash {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.corner-splash--about {
+  bottom: -110px;
+  right: -120px;
+}
+
+.corner-splash--skills {
+  bottom: -120px;
+  left: -140px;
+}
+
+.corner-splash--works {
+  bottom: -110px;
+  right: -130px;
+}
+
+.corner-splash--contact {
+  bottom: -110px;
+  left: -130px;
 }
 
 .hero__content {
@@ -150,6 +174,14 @@ ul {
   font-weight: 400;
   letter-spacing: 0.02em;
   line-height: 1.15;
+}
+
+.hero__title-line {
+  display: block;
+}
+
+.hero__title-line--sumi {
+  font-size: 1.35em;
 }
 
 .hero__title-part {
@@ -248,6 +280,8 @@ ul {
 
 /* Sections */
 .section {
+  position: relative;
+  overflow: hidden;
   padding: 88px 24px;
 }
 
@@ -256,6 +290,8 @@ ul {
 }
 
 .section__inner {
+  position: relative;
+  z-index: 1;
   max-width: 1080px;
   margin: 0 auto;
 }

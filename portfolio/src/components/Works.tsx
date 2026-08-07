@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { workCategories, works, type WorkCategory } from '../data'
 import { CameraIcon, VideoIcon } from './CameraIcon'
+import { CornerSplash } from './InkSplatter'
 
 export function Works() {
   const [activeCategory, setActiveCategory] = useState<WorkCategory>('すべて')
@@ -11,6 +12,7 @@ export function Works() {
 
   return (
     <section id="works" className="section">
+      <CornerSplash position="works" color="blue" size={260} />
       <div className="section__inner">
         <h2 className="section__title">
           <span className="section__title-accent">Works</span> 作品・実績

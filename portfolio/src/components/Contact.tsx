@@ -1,3 +1,5 @@
+import { CornerSplash } from './InkSplatter'
+
 const SNS_LINKS = [
   { label: 'X (Twitter)', href: 'https://x.com/' },
   { label: 'Instagram', href: 'https://instagram.com/' },
@@ -7,6 +9,7 @@ const SNS_LINKS = [
 export function Contact() {
   return (
     <section id="contact" className="section section--tinted">
+      <CornerSplash position="contact" color="orange" size={260} />
       <div className="section__inner contact">
         <h2 className="section__title">
           <span className="section__title-accent">Contact</span> お問い合わせ

@@ -1,16 +1,26 @@
 import { CameraIcon, VideoIcon } from './CameraIcon'
-import { InkSplatter } from './InkSplatter'
+import { InkSplash } from './InkSplatter'
 
 export function Hero() {
   return (
     <section id="top" className="hero">
-      <InkSplatter />
+      <svg
+        className="hero__splatter"
+        viewBox="0 0 1200 700"
+        preserveAspectRatio="xMidYMid slice"
+        aria-hidden="true"
+      >
+        <InkSplash x={150} y={110} scale={2.9} rotate={-10} color="blue" />
+        <InkSplash x={1050} y={560} scale={2.9} rotate={14} color="orange" />
+      </svg>
       <div className="hero__content">
         <p className="hero__eyebrow">Photographer / Videographer</p>
         <h1 className="hero__title">
-          <span className="hero__title-part hero__title-part--su">su</span>
-          <span className="hero__title-part hero__title-part--mi">mi</span>{' '}
-          <span className="hero__title-part hero__title-part--channel">channel</span>
+          <span className="hero__title-line hero__title-line--sumi">
+            <span className="hero__title-part hero__title-part--su">su</span>
+            <span className="hero__title-part hero__title-part--mi">mi</span>
+          </span>
+          <span className="hero__title-line hero__title-part hero__title-part--channel">channel</span>
         </h1>
         <p className="hero__lead">
           写真と映像で、日常のワクワクする瞬間を切り取っています。

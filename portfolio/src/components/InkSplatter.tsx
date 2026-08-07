@@ -1,40 +1,81 @@
-export function InkSplatter() {
+export function InkSplatterDefs() {
+  return (
+    <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
+      <defs>
+        <g id="ink-cluster">
+          <circle cx="0" cy="0" r="30" />
+          <circle cx="35" cy="-12" r="23" />
+          <circle cx="-30" cy="14" r="21" />
+          <circle cx="12" cy="34" r="19" />
+          <circle cx="-16" cy="-32" r="17" />
+          <circle cx="44" cy="22" r="14" />
+          <circle cx="-42" cy="-8" r="13" />
+          <circle cx="22" cy="-40" r="12" />
+          <circle cx="2" cy="48" r="11" />
+          <circle cx="50" cy="-26" r="9" />
+          <circle cx="-46" cy="32" r="9" />
+          <circle cx="6" cy="6" r="25" />
+        </g>
+        <g id="ink-drip">
+          <circle cx="0" cy="0" r="7" />
+          <circle cx="16" cy="15" r="4.5" />
+          <circle cx="27" cy="28" r="2.8" />
+          <ellipse cx="37" cy="39" rx="2" ry="3" />
+        </g>
+        <g id="ink-dots">
+          <circle cx="0" cy="0" r="3.2" />
+          <circle cx="16" cy="9" r="2.1" />
+          <circle cx="-11" cy="19" r="1.6" />
+          <circle cx="27" cy="-13" r="2.6" />
+          <circle cx="-24" cy="-7" r="1.9" />
+          <circle cx="9" cy="-22" r="1.3" />
+          <circle cx="38" cy="6" r="1.6" />
+          <circle cx="-6" cy="30" r="1.4" />
+        </g>
+      </defs>
+    </svg>
+  )
+}
+
+type SplashProps = {
+  className?: string
+  x: number
+  y: number
+  scale?: number
+  rotate?: number
+  color: 'blue' | 'orange'
+  withDrip?: boolean
+  withDots?: boolean
+}
+
+export function InkSplash({ className, x, y, scale = 1, rotate = 0, color, withDrip = true, withDots = true }: SplashProps) {
+  const transform = `translate(${x} ${y}) rotate(${rotate}) scale(${scale})`
+  return (
+    <g className={`ink-splash ink-splash--${color}${className ? ` ${className}` : ''}`} transform={transform}>
+      <use href="#ink-cluster" />
+      {withDrip && <use href="#ink-drip" x="55" y="30" />}
+      {withDots && <use href="#ink-dots" x="-70" y="40" />}
+      {withDots && <use href="#ink-dots" x="70" y="-55" transform="rotate(140)" />}
+    </g>
+  )
+}
+
+type CornerSplashProps = {
+  position: string
+  color: 'blue' | 'orange'
+  size?: number
+}
+
+export function CornerSplash({ position, color, size = 220 }: CornerSplashProps) {
   return (
     <svg
-      className="hero__splatter"
-      viewBox="0 0 1200 700"
-      preserveAspectRatio="xMidYMid slice"
+      className={`corner-splash corner-splash--${position}`}
+      width={size}
+      height={size}
+      viewBox="-100 -100 200 200"
       aria-hidden="true"
     >
-      <g className="hero__splatter-blue">
-        <path
-          d="M80,10 C130,-25 210,5 205,55 C270,35 330,60 310,110
-             C380,105 420,160 375,205 C420,245 400,315 335,320
-             C345,375 275,410 220,375 C195,420 110,415 100,365
-             C40,375 -10,325 20,275 C-30,255 -25,190 35,175
-             C15,120 35,60 80,10 Z"
-        />
-        <circle cx="340" cy="215" r="19" />
-        <circle cx="375" cy="255" r="10" />
-        <circle cx="398" cy="292" r="6" />
-        <path d="M420,155 C440,145 460,155 452,175 C446,192 415,185 420,155 Z" />
-        <ellipse cx="50" cy="330" rx="13" ry="8" transform="rotate(-20 50 330)" />
-        <circle cx="15" cy="365" r="5" />
-      </g>
-      <g className="hero__splatter-orange">
-        <path
-          d="M900,440 C955,400 1040,425 1030,480 C1100,465 1150,505 1120,555
-             C1190,560 1215,625 1160,655 C1195,690 1165,755 1100,745
-             C1095,795 1015,810 985,765 C930,795 855,760 875,705
-             C815,700 795,635 850,605 C825,555 855,495 900,440 Z"
-        />
-        <circle cx="1150" cy="500" r="20" />
-        <circle cx="1185" cy="545" r="11" />
-        <circle cx="1205" cy="585" r="6" />
-        <path d="M840,590 C818,575 795,585 805,608 C813,627 848,618 840,590 Z" />
-        <ellipse cx="1225" cy="430" rx="14" ry="8" transform="rotate(25 1225 430)" />
-        <circle cx="1255" cy="400" r="6" />
-      </g>
+      <InkSplash x={0} y={0} color={color} />
     </svg>
   )
 }

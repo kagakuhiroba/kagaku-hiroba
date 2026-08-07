@@ -1,9 +1,11 @@
 import { skills } from '../data'
 import { CameraIcon, VideoIcon } from './CameraIcon'
+import { CornerSplash } from './InkSplatter'
 
 export function Skills() {
   return (
     <section id="skills" className="section section--tinted">
+      <CornerSplash position="skills" color="blue" size={280} />
       <div className="section__inner">
         <h2 className="section__title">
           <span className="section__title-accent">Skills</span> スキル

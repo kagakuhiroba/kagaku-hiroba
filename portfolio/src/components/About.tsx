@@ -1,6 +1,9 @@
+import { CornerSplash } from './InkSplatter'
+
 export function About() {
   return (
     <section id="about" className="section">
+      <CornerSplash position="about" color="orange" size={260} />
       <div className="section__inner about">
         <div className="about__portrait" aria-hidden="true">
           <span>sumi</span>
