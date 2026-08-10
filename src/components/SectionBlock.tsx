@@ -6,7 +6,10 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
 
   return (
     <section id={section.id} className="section">
-      <div ref={ref} className={`section__inner${visible ? ' is-visible' : ''}`}>
+      <div
+        ref={ref}
+        className={`section__inner section__inner--${section.id}${visible ? ' is-visible' : ''}`}
+      >
         <p className="section__eyebrow">{section.eyebrow}</p>
         <h2 className="section__title">{section.title}</h2>
         <p className="section__lead">{section.lead}</p>

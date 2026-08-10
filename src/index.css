@@ -105,14 +105,26 @@ a {
   height: 100vh;
   min-height: 560px;
   overflow: hidden;
+  animation: hero-fade-in 1.2s ease both;
 }
 
-.hero__image {
+.hero__slides {
+  position: absolute;
+  inset: 0;
+}
+
+.hero__slide {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
+  opacity: 0;
   transform: scale(1.05);
+  transition: opacity 1.2s ease;
+}
+
+.hero__slide.is-active {
+  opacity: 1;
 }
 
 .hero__scrim {
@@ -124,6 +136,40 @@ a {
     rgba(30, 20, 15, 0.35) 45%,
     rgba(30, 20, 15, 0.75) 100%
   );
+}
+
+.hero__nav {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transform: translateY(-50%);
+  transition: background 0.2s ease, transform 0.2s ease;
+  animation: hero-fade-in 1.2s ease 0.4s both;
+}
+
+.hero__nav:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.hero__nav--prev {
+  left: clamp(0.75rem, 3vw, 2rem);
+}
+
+.hero__nav--next {
+  right: clamp(0.75rem, 3vw, 2rem);
 }
 
 .hero__content {
@@ -139,6 +185,48 @@ a {
   gap: 1.25rem;
   padding: 0 1.5rem;
   text-align: center;
+  animation: hero-content-in 1s ease 0.2s both;
+}
+
+.hero__dots {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.hero__dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.hero__dot.is-active {
+  background: #fff;
+  transform: scale(1.35);
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-content-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 24px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
 }
 
 .hero__by {
@@ -157,7 +245,7 @@ a {
 }
 
 .hero__logo {
-  width: min(70vw, 480px);
+  width: min(76vw, 560px);
 }
 
 .hero__cta {
@@ -278,6 +366,15 @@ a {
 .section__inner.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.section__inner.section__inner--profile {
+  transform: translateY(36px) scale(0.94);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section__inner.section__inner--profile.is-visible {
+  transform: translateY(0) scale(1);
 }
 
 .section__eyebrow {
@@ -412,6 +509,17 @@ a {
 
   .hero__cta-line::after {
     animation: none;
+  }
+
+  .hero,
+  .hero__content,
+  .hero__nav {
+    animation: none;
+    opacity: 1;
+  }
+
+  .hero__slide {
+    transition: none;
   }
 
   .section__inner {

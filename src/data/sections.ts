@@ -23,10 +23,33 @@ export interface SiteSection {
 // GitHub Pagesなどサブパス配信時にも画像が解決できるよう、Viteのbase URLを付与する。
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 
-export const heroImage = {
-  src: asset('images/aitahime-portrait.jpg'),
-  alt: '歌手 あいたひめ',
-};
+export const heroImages = [
+  {
+    src: asset('images/aitahime-portrait.jpg'),
+    alt: '函館・旧函館区公会堂前で微笑むあいたひめ',
+    focus: 'center 75%',
+  },
+  {
+    src: asset('images/hero-goryokaku-flower.jpg'),
+    alt: '五稜郭タワーを背景に立つあいたひめ',
+    focus: 'center 65%',
+  },
+  {
+    src: asset('images/hero-blue-glow.jpg'),
+    alt: '青い照明の中で歌うあいたひめ',
+    focus: 'center 30%',
+  },
+  {
+    src: asset('images/hero-pink-curtain.jpg'),
+    alt: 'ステージで表情豊かに歌うあいたひめ',
+    focus: 'center 60%',
+  },
+  {
+    src: asset('images/hero-christmas.jpg'),
+    alt: 'クリスマスイベントで歌うあいたひめ',
+    focus: 'center 20%',
+  },
+];
 
 export const logoImage = {
   src: asset('images/karagaku-hiroba-logo.jpg'),
