@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState, type CSSProperties } from 'react';
 import { heroImages, logoImage, noteSprites } from '../data/sections';
 
 const SLIDE_INTERVAL_MS = 3000;
-const NOTE_COUNT = 12;
+const NOTE_COUNT = 7;
 
 function createNoteParticles() {
   return Array.from({ length: NOTE_COUNT }, (_, i) => {
@@ -97,7 +97,10 @@ export default function Hero() {
 
       <div className="hero__logo-wrap">
         <img className="hero__logo" src={logoImage.src} alt={logoImage.alt} />
-        <p className="hero__by">あいたひめ</p>
+        <p className="hero__by">
+          <span className="hero__by-label">sponsored by</span>
+          <span className="hero__by-name">あいたひめ</span>
+        </p>
       </div>
 
       <div className="hero__foot">

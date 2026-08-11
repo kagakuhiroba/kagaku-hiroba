@@ -12,7 +12,6 @@ export interface SiteSection {
   id: string;
   eyebrow: string;
   title: string;
-  navLabel?: string;
   lead: string;
   body: string[];
   bodyImage?: GalleryPhoto;
@@ -75,8 +74,7 @@ export const sections: SiteSection[] = [
   {
     id: 'profile',
     eyebrow: '01 / Profile',
-    title: '人物紹介',
-    navLabel: 'あいたひめ',
+    title: 'あいたひめ',
     lead: '“心に寄り添うあたたかい歌で街に笑顔を”を大切に想い続け、故郷『函館』にて活動中のシンガーソングライター。',
     body: [
       '子どもからお年寄りまで世代を超えた歌を届け、2025年8月には函館市芸術ホールにて「あいたひめ歌楽コンサート2025」を開催し、372名を動員。',
