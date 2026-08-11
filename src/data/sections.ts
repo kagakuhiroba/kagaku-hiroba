@@ -52,7 +52,7 @@ export const heroImages = [
 ];
 
 export const logoImage = {
-  src: asset('images/karagaku-hiroba-logo.jpg'),
+  src: asset('images/karagaku-hiroba-logo-transparent.png'),
   alt: '歌楽ひろば ロゴ「歌でいきいき、楽しい時間を」',
 };
 

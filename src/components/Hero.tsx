@@ -50,11 +50,15 @@ export default function Hero() {
         ›
       </button>
 
-      <div className="hero__content">
+      <div className="hero__logo-wrap">
+        <img className="hero__logo" src={logoImage.src} alt={logoImage.alt} />
+      </div>
+
+      <div className="hero__caption">
         <p className="hero__by">あいたひめ</p>
-        <div className="hero__logo-card">
-          <img className="hero__logo" src={logoImage.src} alt={logoImage.alt} />
-        </div>
+      </div>
+
+      <div className="hero__foot">
         <div className="hero__dots" role="tablist" aria-label="表示する写真を選ぶ">
           {heroImages.map((image, i) => (
             <button
