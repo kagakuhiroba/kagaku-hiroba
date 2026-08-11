@@ -1,6 +1,5 @@
 import Hero from './components/Hero';
 import ScrollGallery from './components/ScrollGallery';
-import SiteFooter from './components/SiteFooter';
 import SiteNav from './components/SiteNav';
 
 export default function App() {
@@ -11,7 +10,6 @@ export default function App() {
         <Hero />
         <ScrollGallery />
       </main>
-      <SiteFooter />
     </div>
   );
 }

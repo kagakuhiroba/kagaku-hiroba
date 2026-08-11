@@ -13,15 +13,24 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
   const [ref, visible] = useReveal<HTMLDivElement>();
   const sentences = section.body.flatMap(splitIntoSentences);
 
+  const highlightIndex = section.leadHighlight ? section.lead.indexOf(section.leadHighlight) : -1;
+
   return (
     <section id={section.id} className="section">
       <div
         ref={ref}
         className={`section__inner section__inner--${section.id}${visible ? ' is-visible' : ''}`}
       >
-        <p className="section__eyebrow">{section.eyebrow}</p>
         <h2 className="section__title">{section.title}</h2>
-        <p className="section__lead">{section.lead}</p>
+        {highlightIndex >= 0 && section.leadHighlight ? (
+          <p className="section__lead">
+            {section.lead.slice(0, highlightIndex)}
+            <span className="section__lead-highlight">{section.leadHighlight}</span>
+            {section.lead.slice(highlightIndex + section.leadHighlight.length)}
+          </p>
+        ) : (
+          <p className="section__lead">{section.lead}</p>
+        )}
         {sentences.length > 0 && (
           <div className="section__body">
             {section.bodyImage && (
