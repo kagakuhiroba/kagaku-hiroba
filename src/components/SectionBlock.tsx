@@ -46,10 +46,16 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
             ))}
           </div>
         )}
-        {section.gallery && section.gallery.length > 0 && (
-          <div className="section__gallery">
-            {section.gallery.map((photo) => (
-              <img key={photo.src} src={photo.src} alt={photo.alt} loading="lazy" />
+        {section.achievements && section.achievements.length > 0 && (
+          <div className="achievement-scroll">
+            {section.achievements.map((item) => (
+              <div className="achievement-card" key={item.image}>
+                <img src={item.image} alt={item.alt} loading="lazy" />
+                <div className="achievement-card__body">
+                  <p className="achievement-card__date">{item.date}</p>
+                  <p className="achievement-card__title">{item.title}</p>
+                </div>
+              </div>
             ))}
           </div>
         )}

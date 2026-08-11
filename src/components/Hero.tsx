@@ -96,7 +96,17 @@ export default function Hero() {
       </button>
 
       <div className="hero__logo-wrap">
-        <img className="hero__logo" src={logoImage.src} alt={logoImage.alt} />
+        <div className="hero__logo-frame">
+          <img className="hero__logo" src={logoImage.src} alt={logoImage.alt} />
+          <div
+            className="hero__logo-shine"
+            aria-hidden="true"
+            style={{
+              WebkitMaskImage: `url(${logoImage.src})`,
+              maskImage: `url(${logoImage.src})`,
+            }}
+          />
+        </div>
         <p className="hero__by">
           <span className="hero__by-label">sponsored by</span>
           <span className="hero__by-name">あいたひめ</span>

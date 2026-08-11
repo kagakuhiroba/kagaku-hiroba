@@ -8,6 +8,13 @@ export interface GalleryPhoto {
   alt: string;
 }
 
+export interface AchievementItem {
+  title: string;
+  date: string;
+  image: string;
+  alt: string;
+}
+
 export interface SiteSection {
   id: string;
   eyebrow: string;
@@ -18,7 +25,7 @@ export interface SiteSection {
   image: string;
   imageFit: 'cover' | 'contain';
   links?: ContactLink[];
-  gallery?: GalleryPhoto[];
+  achievements?: AchievementItem[];
 }
 
 // GitHub Pagesなどサブパス配信時にも画像が解決できるよう、Viteのbase URLを付与する。
@@ -117,12 +124,37 @@ export const sections: SiteSection[] = [
     body: [],
     image: asset('images/performance-goryokaku-festival.jpg'),
     imageFit: 'cover',
-    gallery: [
-      { src: asset('images/performance-blue-light.jpg'), alt: '歌楽ひろばでの演奏の様子' },
-      { src: asset('images/performance-cafe.jpg'), alt: '小さな会場でのライブの様子' },
-      { src: asset('images/performance-christmas.jpg'), alt: 'クリスマスイベントでの演奏の様子' },
-      { src: asset('images/performance-red-blazer.jpg'), alt: 'ステージでの演奏の様子' },
-      { src: asset('images/performance-band.jpg'), alt: 'バンド編成でのライブの様子' },
+    achievements: [
+      {
+        title: '歌楽ひろばでの演奏',
+        date: '開催日：準備中',
+        image: asset('images/performance-blue-light.jpg'),
+        alt: '歌楽ひろばでの演奏の様子',
+      },
+      {
+        title: '小さな会場でのライブ',
+        date: '開催日：準備中',
+        image: asset('images/performance-cafe.jpg'),
+        alt: '小さな会場でのライブの様子',
+      },
+      {
+        title: 'クリスマスイベントでの演奏',
+        date: '開催日：準備中',
+        image: asset('images/performance-christmas.jpg'),
+        alt: 'クリスマスイベントでの演奏の様子',
+      },
+      {
+        title: 'ステージでの演奏',
+        date: '開催日：準備中',
+        image: asset('images/performance-red-blazer.jpg'),
+        alt: 'ステージでの演奏の様子',
+      },
+      {
+        title: 'バンド編成でのライブ',
+        date: '開催日：準備中',
+        image: asset('images/performance-band.jpg'),
+        alt: 'バンド編成でのライブの様子',
+      },
     ],
   },
   {
