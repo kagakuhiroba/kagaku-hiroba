@@ -216,7 +216,7 @@ a {
     opacity: 0.85;
   }
   100% {
-    transform: translate(var(--note-drift), -135vh);
+    transform: translate(var(--note-drift), var(--note-travel));
     opacity: 0;
   }
 }
@@ -450,8 +450,10 @@ a {
 
 .section__lead {
   margin: 0 0 1rem;
-  font-size: 1.05rem;
-  color: var(--color-text-soft);
+  font-size: clamp(1.15rem, 3.2vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.7;
+  color: var(--color-text);
 }
 
 .section__body p {

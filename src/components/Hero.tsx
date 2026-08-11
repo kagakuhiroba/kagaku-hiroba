@@ -6,13 +6,17 @@ const NOTE_COUNT = 12;
 
 function createNoteParticles() {
   return Array.from({ length: NOTE_COUNT }, (_, i) => {
-    const duration = 9 + Math.random() * 6;
+    const duration = 6 + Math.random() * 5;
     const delay = -Math.random() * duration;
+    // ロゴの下(約50〜64%)から、ロゴの上あたり(約8〜16%)までふわっと浮かび上がる。
+    const topStart = 50 + Math.random() * 14;
+    const topEnd = 8 + Math.random() * 8;
     return {
       key: i,
       sprite: noteSprites[i % noteSprites.length],
       left: 6 + Math.random() * 88,
-      bottomStart: Math.random() * 22,
+      topStart,
+      travel: topEnd - topStart,
       size: 26 + Math.random() * 30,
       duration,
       delay,
@@ -62,11 +66,12 @@ export default function Hero() {
             style={
               {
                 left: `${note.left}%`,
-                bottom: `${note.bottomStart}%`,
+                top: `${note.topStart}%`,
                 width: `${note.size}px`,
                 animationDuration: `${note.duration}s`,
                 animationDelay: `${note.delay}s`,
                 '--note-drift': `${note.drift}px`,
+                '--note-travel': `${note.travel}vh`,
               } as CSSProperties
             }
           />
