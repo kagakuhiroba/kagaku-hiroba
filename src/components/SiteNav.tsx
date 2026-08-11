@@ -10,7 +10,7 @@ export default function SiteNav() {
         <ul>
           {sections.map((section) => (
             <li key={section.id}>
-              <a href={`#${section.id}`}>{section.title}</a>
+              <a href={`#${section.id}`}>{section.navLabel ?? section.title}</a>
             </li>
           ))}
         </ul>

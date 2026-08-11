@@ -12,8 +12,10 @@ export interface SiteSection {
   id: string;
   eyebrow: string;
   title: string;
+  navLabel?: string;
   lead: string;
   body: string[];
+  bodyImage?: GalleryPhoto;
   image: string;
   imageFit: 'cover' | 'contain';
   links?: ContactLink[];
@@ -51,6 +53,19 @@ export const heroImages = [
   },
 ];
 
+export const noteSprites = [
+  asset('images/notes/treble.png'),
+  asset('images/notes/orange1.png'),
+  asset('images/notes/blue.png'),
+  asset('images/notes/green.png'),
+  asset('images/notes/pink1.png'),
+  asset('images/notes/purple.png'),
+  asset('images/notes/yellow.png'),
+  asset('images/notes/teal.png'),
+  asset('images/notes/pink2.png'),
+  asset('images/notes/bass.png'),
+];
+
 export const logoImage = {
   src: asset('images/karagaku-hiroba-logo-transparent.png'),
   alt: '歌楽ひろば ロゴ「歌でいきいき、楽しい時間を」',
@@ -61,12 +76,14 @@ export const sections: SiteSection[] = [
     id: 'profile',
     eyebrow: '01 / Profile',
     title: '人物紹介',
+    navLabel: 'あいたひめ',
     lead: '“心に寄り添うあたたかい歌で街に笑顔を”を大切に想い続け、故郷『函館』にて活動中のシンガーソングライター。',
     body: [
       '子どもからお年寄りまで世代を超えた歌を届け、2025年8月には函館市芸術ホールにて「あいたひめ歌楽コンサート2025」を開催し、372名を動員。',
       '2025年リリース、オリジナルアルバム「わたしのうた I」各種サブスクにて配信中。',
       '日々歌の力を感じながら心を込めて歌っています。',
     ],
+    bodyImage: { src: asset('images/aitahime-self-intro.jpg'), alt: '笑顔で歌うあいたひめ' },
     image: asset('images/aitahime-portrait-goryokaku.jpg'),
     imageFit: 'cover',
   },

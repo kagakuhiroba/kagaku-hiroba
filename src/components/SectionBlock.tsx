@@ -15,6 +15,14 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
         <p className="section__lead">{section.lead}</p>
         {section.body.length > 0 && (
           <div className="section__body">
+            {section.bodyImage && (
+              <img
+                className="section__body-image"
+                src={section.bodyImage.src}
+                alt={section.bodyImage.alt}
+                loading="lazy"
+              />
+            )}
             {section.body.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
