@@ -15,6 +15,14 @@ export interface AchievementItem {
   alt: string;
 }
 
+export interface ScheduleEvent {
+  date: string; // 'YYYY-MM-DD'
+  title: string;
+  time?: string;
+  venue?: string;
+  price?: string;
+}
+
 export interface SiteSection {
   id: string;
   title: string;
@@ -76,6 +84,11 @@ export const logoImage = {
   src: asset('images/karagaku-hiroba-logo-transparent.png'),
   alt: '歌楽ひろば ロゴ「歌でいきいき、楽しい時間を」',
 };
+
+export const navSplatterBg = asset('images/nav-splatter-bg.jpg');
+
+// 開催が決まり次第、ここにイベントを追加してください。
+export const scheduleEvents: ScheduleEvent[] = [];
 
 export const sections: SiteSection[] = [
   {
@@ -157,7 +170,7 @@ export const sections: SiteSection[] = [
     id: 'contact',
     title: '問い合わせ先',
     lead: '◆お問い合わせ、ご依頼◆',
-    body: ['あいたひめ（相田日芽）'],
+    body: ['あいたひめ'],
     links: [
       { label: 'TEL：090-6876-5725', href: 'tel:09068765725' },
       { label: 'Mail：hakodate.aita@gmail.com', href: 'mailto:hakodate.aita@gmail.com' },

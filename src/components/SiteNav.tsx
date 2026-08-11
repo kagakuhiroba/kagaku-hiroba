@@ -1,10 +1,10 @@
-import { sections } from '../data/sections';
+import { logoImage, navSplatterBg, sections } from '../data/sections';
 
 export default function SiteNav() {
   return (
-    <header className="site-nav">
+    <header className="site-nav" style={{ backgroundImage: `url(${navSplatterBg})` }}>
       <a className="site-nav__brand" href="#top">
-        歌楽ひろば
+        <img className="site-nav__logo" src={logoImage.src} alt="歌楽ひろば" />
       </a>
       <nav className="site-nav__links" aria-label="ページ内ナビゲーション">
         <ul>

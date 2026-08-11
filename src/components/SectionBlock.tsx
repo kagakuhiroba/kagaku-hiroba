@@ -1,5 +1,6 @@
-import type { SiteSection } from '../data/sections';
+import { logoImage, scheduleEvents, type SiteSection } from '../data/sections';
 import { useReveal } from '../hooks/useReveal';
+import ScheduleCalendar from './ScheduleCalendar';
 
 // 句点(。)ごとに文を分割し、1文ずつ独立した段落として表示する。
 function splitIntoSentences(paragraph: string): string[] {
@@ -21,7 +22,15 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
         ref={ref}
         className={`section__inner section__inner--${section.id}${visible ? ' is-visible' : ''}`}
       >
-        <h2 className="section__title">{section.title}</h2>
+        <h2 className="section__title">
+          {section.id === 'about' ? (
+            <>
+              <img className="section__title-logo" src={logoImage.src} alt="歌楽ひろば" /> とは
+            </>
+          ) : (
+            section.title
+          )}
+        </h2>
         {highlightIndex >= 0 && section.leadHighlight ? (
           <p className="section__lead">
             {section.lead.slice(0, highlightIndex)}
@@ -55,6 +64,7 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
             ))}
           </div>
         )}
+        {section.id === 'schedule' && <ScheduleCalendar events={scheduleEvents} />}
         {section.achievements && section.achievements.length > 0 && (
           <div className="achievement-scroll">
             {section.achievements.map((item) => (

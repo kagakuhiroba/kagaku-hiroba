@@ -7,7 +7,8 @@ const NOTE_COUNT = 7;
 function createNoteParticles() {
   return Array.from({ length: NOTE_COUNT }, (_, i) => {
     const duration = 6 + Math.random() * 5;
-    const delay = -Math.random() * duration;
+    // サイトを開いてから1秒後にアニメーションを開始する。
+    const delay = 1 + Math.random() * 1.5;
     // ロゴの下(約50〜64%)から、ロゴの上あたり(約8〜16%)までふわっと浮かび上がる。
     const topStart = 50 + Math.random() * 14;
     const topEnd = 8 + Math.random() * 8;

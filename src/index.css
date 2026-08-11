@@ -54,22 +54,22 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 0 clamp(1rem, 4vw, 2.5rem);
-  background: rgba(255, 250, 243, 0.85);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(58, 46, 38, 0.08);
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid rgba(58, 46, 38, 0.15);
 }
 
 .site-nav__brand {
   flex: 0 0 auto;
-  font-weight: 700;
-  font-size: 1.1rem;
-  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  height: 100%;
   text-decoration: none;
-  white-space: nowrap;
-  background: linear-gradient(90deg, var(--color-accent-pink), var(--color-accent-purple));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+}
+
+.site-nav__logo {
+  height: min(70%, 44px);
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
 }
 
 .site-nav__links {
@@ -90,8 +90,10 @@ a {
 .site-nav__links a {
   text-decoration: none;
   font-size: 0.85rem;
+  font-weight: 800;
   white-space: nowrap;
-  color: var(--color-text-soft);
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(58, 46, 38, 0.45);
   transition: color 0.2s ease;
 }
 
@@ -520,6 +522,13 @@ a {
 .section__title {
   margin: 0 0 1rem;
   font-size: clamp(1.6rem, 4vw, 2.2rem);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section__title-logo {
+  height: 1.6em;
 }
 
 .section__lead {
@@ -533,12 +542,15 @@ a {
 .section__lead-highlight {
   color: var(--color-accent-orange);
   white-space: nowrap;
+  -webkit-text-stroke: 1px #1e140f;
+  paint-order: stroke fill;
 }
 
 .section__body p {
   margin: 0 0 0.75rem;
   font-size: 0.9rem;
-  color: var(--color-text-soft);
+  font-weight: 700;
+  color: var(--color-text);
 }
 
 .section__body-image {
@@ -575,6 +587,123 @@ a {
   box-shadow: 0 16px 28px rgba(160, 114, 196, 0.38);
 }
 
+.schedule-calendar__scroll {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  padding-bottom: 0.85rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.schedule-month {
+  flex: 0 0 auto;
+  width: min(86vw, 340px);
+  scroll-snap-align: start;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 10px 24px rgba(58, 46, 38, 0.14);
+}
+
+.schedule-month__title {
+  margin: 0 0 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-text);
+}
+
+.schedule-month__weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-size: 0.7rem;
+  color: var(--color-text-soft);
+  text-align: center;
+  margin-bottom: 0.35rem;
+}
+
+.schedule-month__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+
+.schedule-day {
+  position: relative;
+  min-height: 3.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 0.25rem 0.1rem;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  font-family: inherit;
+  color: var(--color-text);
+}
+
+.schedule-day--empty {
+  visibility: hidden;
+}
+
+.schedule-day__number {
+  font-size: 0.72rem;
+}
+
+.schedule-day.is-today .schedule-day__number {
+  font-weight: 800;
+  color: var(--color-accent-orange);
+}
+
+.schedule-day.has-event {
+  cursor: pointer;
+  background: rgba(245, 166, 35, 0.16);
+}
+
+.schedule-day__event {
+  width: 100%;
+  font-size: 0.55rem;
+  line-height: 1.25;
+  color: #fff;
+  background: var(--color-accent-pink);
+  border-radius: 4px;
+  padding: 1px 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.schedule-popover {
+  position: fixed;
+  z-index: 200;
+  width: 220px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.75rem 0.9rem;
+  box-shadow: 0 14px 30px rgba(58, 46, 38, 0.32);
+  text-align: left;
+}
+
+.schedule-popover__title {
+  margin: 0 0 0.3rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.schedule-popover__item p {
+  margin: 0 0 0.15rem;
+  font-size: 0.75rem;
+  color: var(--color-text-soft);
+}
+
+.schedule-popover__item + .schedule-popover__item {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(58, 46, 38, 0.1);
+}
+
 .achievement-scroll {
   display: flex;
   gap: 1rem;
@@ -587,7 +716,7 @@ a {
 
 .achievement-card {
   flex: 0 0 auto;
-  width: clamp(170px, 55vw, 230px);
+  width: min(86vw, 420px);
   scroll-snap-align: start;
   background: #fff;
   border-radius: 16px;
@@ -650,6 +779,10 @@ a {
     border-radius: 0;
     background: none;
     box-shadow: none;
+  }
+
+  .achievement-card {
+    width: 230px;
   }
 }
 
