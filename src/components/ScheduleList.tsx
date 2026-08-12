@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { scheduleVenues } from '../data/sections';
+import { scheduleVenues, specialEvents } from '../data/sections';
 import { wrapJa } from '../utils/wrapJa';
 
 export default function ScheduleList() {
@@ -18,20 +18,36 @@ export default function ScheduleList() {
   }, [activeId]);
 
   return (
-    <div className="schedule-venues">
-      {scheduleVenues.map((venue) => (
-        <button
-          key={venue.id}
-          type="button"
-          className="schedule-venue"
-          onClick={() => setActiveId(venue.id)}
-        >
-          <span>{wrapJa(venue.title)}</span>
-          <span className="schedule-venue__arrow" aria-hidden="true">
-            ›
-          </span>
-        </button>
-      ))}
+    <div className="schedule-content">
+      <p className="special-events__label">{wrapJa('歌楽ひろば　特別編')}</p>
+      <div className="achievement-scroll">
+        {specialEvents.map((event) => (
+          <div className="achievement-card" key={event.image}>
+            <img src={event.image} alt={event.alt} loading="lazy" />
+            <div className="achievement-card__body">
+              <p className="achievement-card__date">{wrapJa(event.date)}</p>
+              <p className="achievement-card__title">{wrapJa(event.title)}</p>
+              <p className="achievement-card__venue">{wrapJa(event.venue)}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="schedule-venues">
+        {scheduleVenues.map((venue) => (
+          <button
+            key={venue.id}
+            type="button"
+            className="schedule-venue"
+            onClick={() => setActiveId(venue.id)}
+          >
+            <span>{wrapJa(venue.title)}</span>
+            <span className="schedule-venue__arrow" aria-hidden="true">
+              ›
+            </span>
+          </button>
+        ))}
+      </div>
 
       {active &&
         createPortal(

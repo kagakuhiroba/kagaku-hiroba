@@ -21,6 +21,14 @@ export interface ScheduleVenue {
   images: GalleryPhoto[];
 }
 
+export interface SpecialEvent {
+  title: string;
+  date: string;
+  venue: string;
+  image: string;
+  alt: string;
+}
+
 export interface SiteSection {
   id: string;
   title: string;
@@ -96,22 +104,26 @@ export const mascotImages = {
   alt: 'あいたひめのイラスト',
 };
 
+// 活動実績と同じカード形式で、ポスター写真・日時・会場名をそのまま表示する特別編イベント。
+export const specialEvents: SpecialEvent[] = [
+  {
+    title: 'あいたひめ歌楽コンサート2025',
+    date: '2025年8月16日(土)',
+    venue: '函館市芸術ホール ハーモニー五稜郭',
+    image: asset('images/schedule-special-concert2025.jpg'),
+    alt: 'あいたひめ歌楽コンサート2025 ポスター',
+  },
+  {
+    title: '春の歌楽祭(Aita Hime × Sherry)',
+    date: '2026年4月29日(水・祝)',
+    venue: '函館市芸術ホール 地下リハーサル室',
+    image: asset('images/schedule-special-showa-festival.jpg'),
+    alt: '春の歌楽祭(Aita Hime × Sherry) ポスター',
+  },
+];
+
 // クリックすると詳細画像をモーダル表示。画像が未定の会場はimagesを空配列にしておくと「準備中」表示になる。
 export const scheduleVenues: ScheduleVenue[] = [
-  {
-    id: 'special',
-    title: '歌楽ひろば　特別編',
-    images: [
-      {
-        src: asset('images/schedule-special-concert2025.jpg'),
-        alt: 'あいたひめ歌楽コンサート2025 ポスター',
-      },
-      {
-        src: asset('images/schedule-special-showa-festival.jpg'),
-        alt: '春の歌楽祭(Aita Hime × Sherry) ポスター',
-      },
-    ],
-  },
   {
     id: 'g-square',
     title: '歌楽ひろば　Gスクエア',
