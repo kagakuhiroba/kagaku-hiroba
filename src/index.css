@@ -499,6 +499,10 @@ a {
   transform: translateY(0) scale(1);
 }
 
+.section__inner.section__inner--contact {
+  margin-top: clamp(3rem, 10vh, 6rem);
+}
+
 .section__title {
   margin: 0 0 1rem;
   font-size: clamp(1.6rem, 4vw, 2.2rem);
@@ -531,7 +535,7 @@ a {
   word-break: keep-all;
   overflow-wrap: anywhere;
   color: var(--color-accent-orange);
-  -webkit-text-stroke: 2px #1e140f;
+  -webkit-text-stroke: 2px #ffd9a3;
   paint-order: stroke fill;
   text-shadow: 0 3px 8px rgba(30, 20, 15, 0.35);
   animation: logo-scale-pulse 3s ease-in-out infinite;
@@ -542,17 +546,19 @@ a {
   position: absolute;
   inset: 0;
   color: transparent;
+  -webkit-text-stroke: 0;
   background-image: linear-gradient(
     100deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.95) 50%,
-    transparent 60%
+    transparent 34%,
+    #fff6df 48%,
+    #ffffff 50%,
+    #fff6df 52%,
+    transparent 66%
   );
-  background-size: 260% 100%;
+  background-size: 300% 100%;
   background-position: 200% 0;
   -webkit-background-clip: text;
   background-clip: text;
-  mix-blend-mode: overlay;
   pointer-events: none;
   animation: lead-highlight-shine 3s linear infinite;
 }

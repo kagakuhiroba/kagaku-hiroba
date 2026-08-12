@@ -27,7 +27,7 @@ export interface SiteSection {
   id: string;
   title: string;
   navLabel?: string;
-  lead: string;
+  lead?: string;
   leadHighlight?: string;
   body: string[];
   bodyImage?: GalleryPhoto;
@@ -125,7 +125,7 @@ export const sections: SiteSection[] = [
     leadHighlight: '「歌を楽しむことで身体も心も元気に！」',
     body: [
       'そんな想いで活動しています。',
-      '2022年4月より始動。音楽を身体全体で楽しむことで、健康促進・認知症予防に繋げることを目指して、高齢者の皆様を対象に「唱歌」や「歌謡曲」を一緒に歌いながら楽しむ。子どもから〜おじいちゃん、おばあちゃんまで世代を超えてみんなで歌を楽しむ時間を創出。大好きな歌を歌い続けています。',
+      '2022年4月より始動。音楽を身体全体で楽しむことで、健康促進・認知症予防に繋げることを目指して、高齢者の皆様を対象に「唱歌」や「歌謡曲」を一緒に歌いながら楽しむ。子ども〜おじいちゃん、おばあちゃんまで世代を超えてみんなで歌を楽しむ時間を創出。大好きな歌を歌い続けています。',
       '函館市内の公益施設、介護予防団体、町内会、シニア大学講師、北斗市町内会連合会など、様々な場所で実施中。随時、ご依頼受付中。',
     ],
     image: asset('images/karagaku-hiroba-collage.jpg'),
@@ -134,7 +134,6 @@ export const sections: SiteSection[] = [
   {
     id: 'schedule',
     title: '今後の活動予定',
-    lead: '開催予定のイベント情報は今後追加予定です。',
     body: [],
     image: asset('images/aitahime-portrait.jpg'),
     imageFit: 'cover',
@@ -142,7 +141,6 @@ export const sections: SiteSection[] = [
   {
     id: 'achievements',
     title: '活動実績',
-    lead: 'これまでの開催実績は今後追加予定です。',
     body: [],
     image: asset('images/performance-goryokaku-festival.jpg'),
     imageFit: 'cover',
