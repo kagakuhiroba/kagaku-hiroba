@@ -1,7 +1,7 @@
-import { logoMarkImage, scheduleEvents, type SiteSection } from '../data/sections';
+import { logoMarkImage, type SiteSection } from '../data/sections';
 import { useReveal } from '../hooks/useReveal';
 import { wrapJa } from '../utils/wrapJa';
-import ScheduleCalendar from './ScheduleCalendar';
+import ScheduleList from './ScheduleList';
 
 // 句点(。)ごとに文を分割し、1文ずつ独立した段落として表示する。
 function splitIntoSentences(paragraph: string): string[] {
@@ -75,7 +75,7 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
             ))}
           </div>
         )}
-        {section.id === 'schedule' && <ScheduleCalendar events={scheduleEvents} />}
+        {section.id === 'schedule' && <ScheduleList />}
         {section.achievements && section.achievements.length > 0 && (
           <div className="achievement-scroll">
             {section.achievements.map((item) => (

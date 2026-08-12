@@ -15,12 +15,10 @@ export interface AchievementItem {
   alt: string;
 }
 
-export interface ScheduleEvent {
-  date: string; // 'YYYY-MM-DD'
+export interface ScheduleVenue {
+  id: string;
   title: string;
-  time?: string;
-  venue?: string;
-  price?: string;
+  images: GalleryPhoto[];
 }
 
 export interface SiteSection {
@@ -98,13 +96,36 @@ export const mascotImages = {
   alt: 'あいたひめのイラスト',
 };
 
-// 開催が決まり次第、ここにイベントを追加してください。
-export const scheduleEvents: ScheduleEvent[] = [
+// クリックすると詳細画像をモーダル表示。画像が未定の会場はimagesを空配列にしておくと「準備中」表示になる。
+export const scheduleVenues: ScheduleVenue[] = [
   {
-    date: '2026-09-07',
-    title: '知内町善照寺祭り',
-    time: '19時〜',
-    venue: '知内町善照寺（〒049-1103 北海道上磯郡知内町重内32）',
+    id: 'special',
+    title: '歌楽ひろば　特別編',
+    images: [
+      {
+        src: asset('images/schedule-special-concert2025.jpg'),
+        alt: 'あいたひめ歌楽コンサート2025 ポスター',
+      },
+      {
+        src: asset('images/schedule-special-showa-festival.jpg'),
+        alt: '春の歌楽祭(Aita Hime × Sherry) ポスター',
+      },
+    ],
+  },
+  {
+    id: 'g-square',
+    title: '歌楽ひろば　Gスクエア',
+    images: [{ src: asset('images/schedule-g-square.jpg'), alt: 'Gスクエア会場スケジュール' }],
+  },
+  {
+    id: 'kuumin',
+    title: '歌楽ひろば　北斗市くーみん',
+    images: [],
+  },
+  {
+    id: 'shimin-kaikan',
+    title: '歌楽ひろば　函館市民会館',
+    images: [],
   },
 ];
 
