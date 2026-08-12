@@ -85,6 +85,12 @@ export const logoImage = {
   alt: '歌楽ひろば ロゴ「歌でいきいき、楽しい時間を」',
 };
 
+// 見出し内でロゴを大きくはっきり見せるため、余白をトリムしたマーク単体版。
+export const logoMarkImage = {
+  src: asset('images/karagaku-hiroba-logo-mark.png'),
+  alt: '歌楽ひろば ロゴ「歌でいきいき、楽しい時間を」',
+};
+
 export const navSplatterBg = asset('images/nav-splatter-bg.jpg');
 
 // 開催が決まり次第、ここにイベントを追加してください。
