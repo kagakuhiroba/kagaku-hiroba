@@ -26,6 +26,7 @@ export interface ScheduleEvent {
 export interface SiteSection {
   id: string;
   title: string;
+  navLabel?: string;
   lead: string;
   leadHighlight?: string;
   body: string[];
@@ -91,8 +92,6 @@ export const logoMarkImage = {
   alt: '歌楽ひろば ロゴ「歌でいきいき、楽しい時間を」',
 };
 
-export const navSplatterBg = asset('images/nav-splatter-bg.jpg');
-
 // 開催が決まり次第、ここにイベントを追加してください。
 export const scheduleEvents: ScheduleEvent[] = [];
 
@@ -100,6 +99,7 @@ export const sections: SiteSection[] = [
   {
     id: 'profile',
     title: 'あいたひめ',
+    navLabel: '自己紹介',
     lead: '“心に寄り添うあたたかい歌で街に笑顔を”を大切に想い続け、故郷『函館』にて活動中のシンガーソングライター。',
     leadHighlight: '“心に寄り添うあたたかい歌で街に笑顔を”',
     body: [

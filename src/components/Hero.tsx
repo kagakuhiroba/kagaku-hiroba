@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState, type CSSProperties } from 'react';
-import { heroImages, logoImage, noteSprites } from '../data/sections';
+import { heroImages, logoImage, noteSprites, sections } from '../data/sections';
 
 const SLIDE_INTERVAL_MS = 3000;
 const NOTE_COUNT = 7;
@@ -78,6 +78,14 @@ export default function Hero() {
           />
         ))}
       </div>
+
+      <nav className="hero__pagenav" aria-label="ページ内ナビゲーション">
+        {sections.map((section) => (
+          <a key={section.id} href={`#${section.id}`}>
+            {section.navLabel ?? section.title}
+          </a>
+        ))}
+      </nav>
 
       <button
         type="button"
