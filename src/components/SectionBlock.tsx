@@ -35,7 +35,9 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
         {highlightIndex >= 0 && section.leadHighlight ? (
           <p className="section__lead">
             {wrapJa(section.lead.slice(0, highlightIndex))}
-            <span className="section__lead-highlight">{wrapJa(section.leadHighlight)}</span>
+            <span className="section__lead-highlight" data-text={wrapJa(section.leadHighlight)}>
+              {wrapJa(section.leadHighlight)}
+            </span>
             {wrapJa(section.lead.slice(highlightIndex + section.leadHighlight.length))}
           </p>
         ) : (
