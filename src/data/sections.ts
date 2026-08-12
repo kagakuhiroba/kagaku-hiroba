@@ -92,6 +92,13 @@ export const logoMarkImage = {
   alt: '歌楽ひろば ロゴ「歌でいきいき、楽しい時間を」',
 };
 
+// 画面右下に常時表示するマスコットイラスト(まばたき用に2フレーム)。
+export const mascotImages = {
+  open: asset('images/hime-mascot-open.png'),
+  blink: asset('images/hime-mascot-blink.png'),
+  alt: 'あいたひめのイラスト',
+};
+
 // 開催が決まり次第、ここにイベントを追加してください。
 export const scheduleEvents: ScheduleEvent[] = [
   {
