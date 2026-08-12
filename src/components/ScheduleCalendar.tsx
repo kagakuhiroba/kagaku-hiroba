@@ -6,8 +6,6 @@ import { wrapJa } from '../utils/wrapJa';
 const WEEKDAYS = ['日', '月', '火', '水', '木', '金', '土'];
 const MONTHS_BEFORE = 6;
 const MONTHS_AFTER = 12;
-const POPOVER_WIDTH = 220;
-const POPOVER_MARGIN = 12;
 
 function formatDateKey(year: number, month: number, day: number) {
   return `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
@@ -22,22 +20,11 @@ function getMonthCells(year: number, month: number): (number | null)[] {
   return cells;
 }
 
-interface PopoverState {
-  key: string;
-  top: number;
-  left: number;
-  placeAbove: boolean;
-}
-
 export default function ScheduleCalendar({ events }: { events: ScheduleEvent[] }) {
   const today = useMemo(() => new Date(), []);
   const scrollRef = useRef<HTMLDivElement>(null);
   const currentMonthRef = useRef<HTMLDivElement>(null);
-  const [popover, setPopover] = useState<PopoverState | null>(null);
-  const hoverCapable = useMemo(
-    () => typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches,
-    [],
-  );
+  const [selectedDateKey, setSelectedDateKey] = useState<string | null>(null);
 
   const months = useMemo(() => {
     const list: Date[] = [];
@@ -66,36 +53,17 @@ export default function ScheduleCalendar({ events }: { events: ScheduleEvent[] }
   }, []);
 
   useEffect(() => {
-    if (!popover) return;
-    const close = () => setPopover(null);
-    const closeOnOutsideClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (!target.closest('.schedule-day') && !target.closest('.schedule-popover')) close();
+    if (!selectedDateKey) return;
+    const close = () => setSelectedDateKey(null);
+    const closeOnEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') close();
     };
-    // window自体のスクロールのみ閉じる対象にする(capture指定は横スクロールのカレンダー内部にも
-    // 反応してしまい、開いた直後に閉じてしまうため使わない)。
-    window.addEventListener('scroll', close);
-    window.addEventListener('resize', close);
-    document.addEventListener('click', closeOnOutsideClick, true);
-    return () => {
-      window.removeEventListener('scroll', close);
-      window.removeEventListener('resize', close);
-      document.removeEventListener('click', closeOnOutsideClick, true);
-    };
-  }, [popover]);
+    document.addEventListener('keydown', closeOnEscape);
+    return () => document.removeEventListener('keydown', closeOnEscape);
+  }, [selectedDateKey]);
 
-  const showPopoverFor = (dateKey: string, trigger: HTMLButtonElement) => {
-    const rect = trigger.getBoundingClientRect();
-    const placeAbove = rect.top > 180;
-    let left = rect.left + rect.width / 2 - POPOVER_WIDTH / 2;
-    left = Math.max(POPOVER_MARGIN, Math.min(left, window.innerWidth - POPOVER_WIDTH - POPOVER_MARGIN));
-    const top = placeAbove ? rect.top - 8 : rect.bottom + 8;
-    setPopover({ key: dateKey, top, left, placeAbove });
-  };
-
-  const hidePopover = () => setPopover(null);
-
-  const popoverEvents = popover ? eventsByDate.get(popover.key) : undefined;
+  const closeDetail = () => setSelectedDateKey(null);
+  const selectedEvents = selectedDateKey ? eventsByDate.get(selectedDateKey) : undefined;
 
   return (
     <div className="schedule-calendar">
@@ -129,10 +97,7 @@ export default function ScheduleCalendar({ events }: { events: ScheduleEvent[] }
                   const dateKey = formatDateKey(year, month, day);
                   const dayEvents = eventsByDate.get(dateKey);
                   const isToday = isCurrentMonth && day === today.getDate();
-                  const isOpen = popover?.key === dateKey;
-                  const className = `schedule-day${dayEvents ? ' has-event' : ''}${isToday ? ' is-today' : ''}${
-                    isOpen ? ' is-open' : ''
-                  }`;
+                  const className = `schedule-day${dayEvents ? ' has-event' : ''}${isToday ? ' is-today' : ''}`;
 
                   if (!dayEvents) {
                     return (
@@ -147,9 +112,7 @@ export default function ScheduleCalendar({ events }: { events: ScheduleEvent[] }
                       type="button"
                       className={className}
                       key={i}
-                      onClick={(e) => showPopoverFor(dateKey, e.currentTarget)}
-                      onMouseEnter={hoverCapable ? (e) => showPopoverFor(dateKey, e.currentTarget) : undefined}
-                      onMouseLeave={hoverCapable ? hidePopover : undefined}
+                      onClick={() => setSelectedDateKey(dateKey)}
                     >
                       <span className="schedule-day__number">{day}</span>
                       {dayEvents.map((event) => (
@@ -166,25 +129,27 @@ export default function ScheduleCalendar({ events }: { events: ScheduleEvent[] }
         })}
       </div>
 
-      {popover &&
-        popoverEvents &&
+      {selectedEvents &&
         createPortal(
-          <div
-            className="schedule-popover"
-            style={{
-              top: popover.top,
-              left: popover.left,
-              transform: popover.placeAbove ? 'translateY(-100%)' : undefined,
-            }}
-          >
-            {popoverEvents.map((event) => (
-              <div className="schedule-popover__item" key={event.title}>
-                <p className="schedule-popover__title">{wrapJa(event.title)}</p>
-                {event.time && <p>{wrapJa(`時間：${event.time}`)}</p>}
-                {event.venue && <p>{wrapJa(`会場：${event.venue}`)}</p>}
-                {event.price && <p>{wrapJa(`料金：${event.price}`)}</p>}
-              </div>
-            ))}
+          <div className="schedule-modal-backdrop" onClick={closeDetail}>
+            <div className="schedule-modal" onClick={(e) => e.stopPropagation()}>
+              <button
+                type="button"
+                className="schedule-modal__close"
+                onClick={closeDetail}
+                aria-label="閉じる"
+              >
+                ×
+              </button>
+              {selectedEvents.map((event) => (
+                <div className="schedule-modal__item" key={event.title}>
+                  <p className="schedule-modal__title">{wrapJa(event.title)}</p>
+                  {event.time && <p>{wrapJa(`時間：${event.time}`)}</p>}
+                  {event.venue && <p>{wrapJa(`会場：${event.venue}`)}</p>}
+                  {event.price && <p>{wrapJa(`料金：${event.price}`)}</p>}
+                </div>
+              ))}
+            </div>
           </div>,
           document.body,
         )}
