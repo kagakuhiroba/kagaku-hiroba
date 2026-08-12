@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import type { ScheduleEvent } from '../data/sections';
+import { wrapJa } from '../utils/wrapJa';
 
 const WEEKDAYS = ['日', '月', '火', '水', '木', '金', '土'];
 const MONTHS_BEFORE = 6;
@@ -178,10 +179,10 @@ export default function ScheduleCalendar({ events }: { events: ScheduleEvent[] }
           >
             {popoverEvents.map((event) => (
               <div className="schedule-popover__item" key={event.title}>
-                <p className="schedule-popover__title">{event.title}</p>
-                {event.time && <p>時間：{event.time}</p>}
-                {event.venue && <p>会場：{event.venue}</p>}
-                {event.price && <p>料金：{event.price}</p>}
+                <p className="schedule-popover__title">{wrapJa(event.title)}</p>
+                {event.time && <p>{wrapJa(`時間：${event.time}`)}</p>}
+                {event.venue && <p>{wrapJa(`会場：${event.venue}`)}</p>}
+                {event.price && <p>{wrapJa(`料金：${event.price}`)}</p>}
               </div>
             ))}
           </div>,

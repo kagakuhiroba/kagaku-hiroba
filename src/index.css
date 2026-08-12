@@ -537,7 +537,8 @@ a {
   font-weight: 700;
   line-height: 1.7;
   color: var(--color-text);
-  text-wrap: pretty;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .section__lead-highlight {
@@ -547,6 +548,8 @@ a {
   line-height: 1.4;
   color: #e0570f;
   text-wrap: balance;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
   -webkit-text-stroke: 2px #1e140f;
   paint-order: stroke fill;
   text-shadow: 0 3px 8px rgba(30, 20, 15, 0.35);
@@ -557,7 +560,8 @@ a {
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--color-text);
-  text-wrap: pretty;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .section__body-image {
@@ -573,6 +577,18 @@ a {
     float: right;
     width: clamp(120px, 38%, 220px);
     margin: 0 0 0.75rem 1.25rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .section {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .section__inner {
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
   }
 }
 
@@ -711,6 +727,8 @@ a {
   margin: 0 0 0.15rem;
   font-size: 0.75rem;
   color: var(--color-text-soft);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .schedule-popover__item + .schedule-popover__item {
@@ -755,12 +773,16 @@ a {
   font-size: 0.75rem;
   letter-spacing: 0.04em;
   color: var(--color-text-soft);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .achievement-card__title {
   margin: 0;
   font-weight: 700;
   color: var(--color-text);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 /* ---------- Desktop: side-by-side layout ---------- */

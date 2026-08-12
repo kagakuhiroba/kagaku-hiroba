@@ -1,5 +1,6 @@
 import { logoMarkImage, scheduleEvents, type SiteSection } from '../data/sections';
 import { useReveal } from '../hooks/useReveal';
+import { wrapJa } from '../utils/wrapJa';
 import ScheduleCalendar from './ScheduleCalendar';
 
 export default function SectionBlock({ section }: { section: SiteSection }) {
@@ -24,12 +25,12 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
         </h2>
         {highlightIndex >= 0 && section.leadHighlight ? (
           <p className="section__lead">
-            {section.lead.slice(0, highlightIndex)}
-            <span className="section__lead-highlight">{section.leadHighlight}</span>
-            {section.lead.slice(highlightIndex + section.leadHighlight.length)}
+            {wrapJa(section.lead.slice(0, highlightIndex))}
+            <span className="section__lead-highlight">{wrapJa(section.leadHighlight)}</span>
+            {wrapJa(section.lead.slice(highlightIndex + section.leadHighlight.length))}
           </p>
         ) : (
-          <p className="section__lead">{section.lead}</p>
+          <p className="section__lead">{wrapJa(section.lead)}</p>
         )}
         {section.body.length > 0 && (
           <div className="section__body">
@@ -42,7 +43,7 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
               />
             )}
             {section.body.map((paragraph, i) => (
-              <p key={`${i}-${paragraph}`}>{paragraph}</p>
+              <p key={`${i}-${paragraph}`}>{wrapJa(paragraph)}</p>
             ))}
           </div>
         )}
@@ -62,8 +63,8 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
               <div className="achievement-card" key={item.image}>
                 <img src={item.image} alt={item.alt} loading="lazy" />
                 <div className="achievement-card__body">
-                  <p className="achievement-card__date">{item.date}</p>
-                  <p className="achievement-card__title">{item.title}</p>
+                  <p className="achievement-card__date">{wrapJa(item.date)}</p>
+                  <p className="achievement-card__title">{wrapJa(item.title)}</p>
                 </div>
               </div>
             ))}
