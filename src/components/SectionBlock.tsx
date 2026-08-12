@@ -76,6 +76,19 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
           </div>
         )}
         {section.id === 'schedule' && <ScheduleList />}
+        {section.gallery && section.gallery.length > 0 && (
+          <div className="photo-scroll">
+            {section.gallery.map((photo) => (
+              <img
+                key={photo.src}
+                className="photo-scroll__img"
+                src={photo.src}
+                alt={photo.alt}
+                loading="lazy"
+              />
+            ))}
+          </div>
+        )}
         {section.achievements && section.achievements.length > 0 && (
           <div className="achievement-scroll">
             {section.achievements.map((item) => (

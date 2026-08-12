@@ -41,6 +41,7 @@ export interface SiteSection {
   imageFit: 'cover' | 'contain';
   links?: ContactLink[];
   achievements?: AchievementItem[];
+  gallery?: GalleryPhoto[];
 }
 
 // GitHub Pagesなどサブパス配信時にも画像が解決できるよう、Viteのbase URLを付与する。
@@ -103,6 +104,14 @@ export const mascotImages = {
   open: asset('images/hime-mascot-open.png'),
   alt: 'あいたひめのイラスト',
 };
+
+// 「歌楽ひろば とは」ページ下部に横スクロールで表示する活動風景の写真。
+export const karagakuHirobaGallery: GalleryPhoto[] = Array.from({ length: 16 }, (_, i) => i + 1)
+  .filter((n) => n !== 3)
+  .map((n) => ({
+    src: asset(`images/karagaku-hiroba-gallery-${String(n).padStart(2, '0')}.jpg`),
+    alt: `歌楽ひろばの活動風景 ${n}`,
+  }));
 
 // 活動実績と同じカード形式で、ポスター写真・日時・会場名をそのまま表示する特別編イベント。
 export const specialEvents: SpecialEvent[] = [
@@ -173,6 +182,7 @@ export const sections: SiteSection[] = [
       '2022年4月より始動。音楽を身体全体で楽しむことで、健康促進・認知症予防に繋げることを目指して、高齢者の皆様を対象に「唱歌」や「歌謡曲」を一緒に歌いながら楽しむ。子ども〜おじいちゃん、おばあちゃんまで世代を超えてみんなで歌を楽しむ時間を創出。大好きな歌を歌い続けています。',
       '函館市内の公益施設、介護予防団体、町内会、シニア大学講師、北斗市町内会連合会など、様々な場所で実施中。随時、ご依頼受付中。',
     ],
+    gallery: karagakuHirobaGallery,
     image: asset('images/karagaku-hiroba-collage.jpg'),
     imageFit: 'cover',
   },
