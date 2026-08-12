@@ -111,10 +111,16 @@ export const sections: SiteSection[] = [
     leadHighlight: '“心に寄り添うあたたかい歌で街に笑顔を”',
     body: [
       '子どもからお年寄りまで世代を超えた歌を届け、2025年8月には函館市芸術ホールにて「あいたひめ歌楽コンサート2025」を開催し、372名を動員。',
-      '2025年リリース、オリジナルアルバム「わたしのうた I」各種サブスクにて配信中。',
       '日々歌の力を感じながら心を込めて歌っています。',
+      '2025年リリース、オリジナルアルバム「わたしのうた I」各種サブスクにて配信中。',
     ],
     bodyImage: { src: asset('images/aitahime-self-intro.jpg'), alt: '笑顔で歌うあいたひめ' },
+    links: [
+      {
+        label: 'あいたひめオリジナルソング',
+        href: 'https://www.tunecore.co.jp/artists?id=898042&lang=ja',
+      },
+    ],
     image: asset('images/aitahime-portrait-goryokaku.jpg'),
     imageFit: 'cover',
   },

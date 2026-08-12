@@ -534,8 +534,8 @@ a {
   text-wrap: balance;
   word-break: keep-all;
   overflow-wrap: anywhere;
-  color: var(--color-accent-orange);
-  -webkit-text-stroke: 2px #ffd9a3;
+  color: #ff6a00;
+  -webkit-text-stroke: 2px #ffe4bd;
   paint-order: stroke fill;
   text-shadow: 0 3px 8px rgba(30, 20, 15, 0.35);
   animation: logo-scale-pulse 3s ease-in-out infinite;
