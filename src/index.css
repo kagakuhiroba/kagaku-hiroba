@@ -858,7 +858,7 @@ a {
   right: clamp(0.5rem, 3vw, 1.5rem);
   bottom: clamp(0.5rem, 3vh, 1.5rem);
   z-index: 40;
-  width: clamp(70px, 16vw, 130px);
+  width: clamp(52px, 11vw, 92px);
   pointer-events: none;
   transform-origin: bottom center;
   animation: mascot-sway 2.6s ease-in-out infinite;
