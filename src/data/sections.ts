@@ -135,17 +135,17 @@ export const specialEvents: SpecialEvent[] = [
 export const scheduleVenues: ScheduleVenue[] = [
   {
     id: 'g-square',
-    title: '歌楽ひろば　Gスクエア',
+    title: '歌楽ひろば　Gスクエア　開催スケジュール',
     images: [{ src: asset('images/schedule-g-square.jpg'), alt: 'Gスクエア会場スケジュール' }],
   },
   {
     id: 'kuumin',
-    title: '歌楽ひろば　北斗市くーみん',
+    title: '歌楽ひろば　北斗市くーみん　開催スケジュール',
     images: [],
   },
   {
     id: 'shimin-kaikan',
-    title: '歌楽ひろば　函館市民会館',
+    title: '歌楽ひろば　函館市民会館　開催スケジュール',
     images: [],
   },
 ];
@@ -189,7 +189,11 @@ export const sections: SiteSection[] = [
   {
     id: 'schedule',
     title: '今後の活動予定',
-    body: [],
+    lead: '歌楽ひろば　各会場にて定期開催！お気軽にお越しください',
+    leadHighlight: '歌楽ひろば　各会場にて定期開催！お気軽にお越しください',
+    body: [
+      '定期開催以外にもご依頼に応じて、お祭り、函館市内の公益施設、介護予防団体、町内会、シニア大学講師、北斗市町内会連合会などなど、様々な場所でも開催しております。ご依頼をお受けしておりますので、お気軽にお問い合わせください。',
+    ],
     image: asset('images/aitahime-portrait.jpg'),
     imageFit: 'cover',
   },
