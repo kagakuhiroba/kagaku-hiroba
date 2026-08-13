@@ -44,7 +44,21 @@ export default function ScheduleList() {
         <div className="achievement-scroll">
           {specialEvents.map((event) => (
             <div className="achievement-card" key={event.image}>
-              <img src={event.image} alt={event.alt} loading="lazy" />
+              <div className="achievement-card__photo">
+                <img
+                  className="achievement-card__photo-bg"
+                  src={event.image}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                />
+                <img
+                  className="achievement-card__photo-fg"
+                  src={event.image}
+                  alt={event.alt}
+                  loading="lazy"
+                />
+              </div>
               <div className="achievement-card__body">
                 <p className="achievement-card__date">{wrapJa(event.date)}</p>
                 <p className="achievement-card__title">{wrapJa(event.title)}</p>

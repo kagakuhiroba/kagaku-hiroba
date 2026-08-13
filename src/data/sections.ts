@@ -13,6 +13,7 @@ export interface AchievementItem {
   title: string;
   date: string;
   venue: string;
+  detail?: string;
   image: string;
   alt: string;
 }

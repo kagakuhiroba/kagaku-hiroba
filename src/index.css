@@ -758,8 +758,8 @@ a {
 }
 
 .schedule-venue__name {
-  font-size: 0.98rem;
-  font-weight: 800;
+  font-size: 1.3rem;
+  font-weight: 900;
   color: var(--color-text);
   word-break: keep-all;
   overflow-wrap: anywhere;
@@ -888,14 +888,6 @@ a {
   box-shadow: 0 10px 24px rgba(58, 46, 38, 0.16);
 }
 
-.achievement-card > img {
-  display: block;
-  width: auto;
-  height: auto;
-  max-width: min(62vw, 280px);
-  max-height: 240px;
-}
-
 .achievement-card__photo {
   position: relative;
   width: min(62vw, 280px);
@@ -949,6 +941,20 @@ a {
   color: var(--color-text-soft);
   word-break: keep-all;
   overflow-wrap: anywhere;
+}
+
+.achievement-card__detail {
+  margin: 0.5rem 0 0;
+  min-height: 3.4em;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--color-text-soft);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+#achievements .achievement-card__body {
+  background: #fff8dc;
 }
 
 .special-events {
@@ -1049,10 +1055,6 @@ a {
     border-radius: 0;
     background: none;
     box-shadow: none;
-  }
-
-  .achievement-card > img {
-    max-width: 210px;
   }
 
   .achievement-card__photo {

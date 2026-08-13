@@ -133,6 +133,9 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
                   <p className="achievement-card__date">{wrapJa(`日付：${item.date}`)}</p>
                   <p className="achievement-card__title">{wrapJa(item.title)}</p>
                   <p className="achievement-card__venue">{wrapJa(`場所：${item.venue}`)}</p>
+                  <p className="achievement-card__detail">
+                    {item.detail ? wrapJa(item.detail) : ' '}
+                  </p>
                 </div>
               </div>
             ))}
