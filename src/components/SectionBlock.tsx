@@ -64,7 +64,7 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
             {section.links.map((link) => (
               <a
                 key={link.href}
-                className="section__link"
+                className={`section__link${link.variant === 'pattern' ? ' section__link--pattern' : ''}`}
                 href={link.href}
                 {...(link.href.startsWith('http')
                   ? { target: '_blank', rel: 'noopener noreferrer' }

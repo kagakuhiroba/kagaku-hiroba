@@ -19,20 +19,6 @@ export default function ScheduleList() {
 
   return (
     <div className="schedule-content">
-      <p className="special-events__label">{wrapJa('歌楽ひろば　特別編')}</p>
-      <div className="achievement-scroll">
-        {specialEvents.map((event) => (
-          <div className="achievement-card" key={event.image}>
-            <img src={event.image} alt={event.alt} loading="lazy" />
-            <div className="achievement-card__body">
-              <p className="achievement-card__date">{wrapJa(event.date)}</p>
-              <p className="achievement-card__title">{wrapJa(event.title)}</p>
-              <p className="achievement-card__venue">{wrapJa(event.venue)}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
       <div className="schedule-venues">
         {scheduleVenues.map((venue) => (
           <button
@@ -47,6 +33,22 @@ export default function ScheduleList() {
             </span>
           </button>
         ))}
+      </div>
+
+      <div className="special-events">
+        <p className="special-events__label">{wrapJa('歌楽ひろば　特別編')}</p>
+        <div className="achievement-scroll">
+          {specialEvents.map((event) => (
+            <div className="achievement-card" key={event.image}>
+              <img src={event.image} alt={event.alt} loading="lazy" />
+              <div className="achievement-card__body">
+                <p className="achievement-card__date">{wrapJa(event.date)}</p>
+                <p className="achievement-card__title">{wrapJa(event.title)}</p>
+                <p className="achievement-card__venue">{wrapJa(event.venue)}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {active &&

@@ -1,6 +1,7 @@
 export interface ContactLink {
   label: string;
   href: string;
+  variant?: 'pattern';
 }
 
 export interface GalleryPhoto {
@@ -107,7 +108,7 @@ export const mascotImages = {
 
 // 「歌楽ひろば とは」ページ下部に横スクロールで表示する活動風景の写真。
 export const karagakuHirobaGallery: GalleryPhoto[] = Array.from({ length: 16 }, (_, i) => i + 1)
-  .filter((n) => n !== 3)
+  .filter((n) => n !== 3 && n !== 5 && n !== 8)
   .map((n) => ({
     src: asset(`images/karagaku-hiroba-gallery-${String(n).padStart(2, '0')}.jpg`),
     alt: `歌楽ひろばの活動風景 ${n}`,
@@ -167,6 +168,7 @@ export const sections: SiteSection[] = [
       {
         label: 'あいたひめオリジナルソング',
         href: 'https://www.tunecore.co.jp/artists?id=898042&lang=ja',
+        variant: 'pattern',
       },
     ],
     image: asset('images/aitahime-portrait-goryokaku.jpg'),
