@@ -40,7 +40,10 @@ export default function ScheduleList() {
       </div>
 
       <div className="special-events">
-        <p className="special-events__label">{wrapJa('歌楽ひろば　特別編')}</p>
+        <p className="special-events__label">
+          <img className="schedule-venue__logo" src={logoImage2.src} alt="歌楽ひろば" />
+          {wrapJa('特別編')}
+        </p>
         <div className="achievement-scroll">
           {specialEvents.map((event) => (
             <div className="achievement-card" key={event.image}>
