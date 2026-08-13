@@ -9,6 +9,9 @@
   --font-body: 'Hiragino Maru Gothic ProN', 'BIZ UDPGothic', 'Yu Gothic', 'Hiragino Sans',
     sans-serif;
   --dot-pattern-bg: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22150%22%20height%3D%22150%22%20viewBox%3D%220%200%20150%20150%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2220%22%20r%3D%2210%22%20fill%3D%22%23ffab4a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2240%22%20cy%3D%228%22%20r%3D%225%22%20fill%3D%22%23ffe066%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2270%22%20cy%3D%2225%22%20r%3D%2213%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%2212%22%20r%3D%226%22%20fill%3D%22%23c6e86a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22130%22%20cy%3D%2230%22%20r%3D%228%22%20fill%3D%22%23ffab4a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2255%22%20r%3D%226%22%20fill%3D%22%23c6e86a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2255%22%20cy%3D%2260%22%20r%3D%2215%22%20fill%3D%22%23ffe066%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2290%22%20cy%3D%2250%22%20r%3D%224%22%20fill%3D%22%23ffab4a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22120%22%20cy%3D%2265%22%20r%3D%2210%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2210%22%20cy%3D%2290%22%20r%3D%227%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2245%22%20cy%3D%2295%22%20r%3D%224%22%20fill%3D%22%23ffab4a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2275%22%20cy%3D%2288%22%20r%3D%229%22%20fill%3D%22%23c6e86a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22110%22%20cy%3D%22100%22%20r%3D%2213%22%20fill%3D%22%23ffe066%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22140%22%20cy%3D%2285%22%20r%3D%225%22%20fill%3D%22%23ffab4a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2225%22%20cy%3D%22125%22%20r%3D%2211%22%20fill%3D%22%23ffe066%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%22130%22%20r%3D%226%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2295%22%20cy%3D%22135%22%20r%3D%228%22%20fill%3D%22%23c6e86a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22135%22%20cy%3D%22120%22%20r%3D%224%22%20fill%3D%22%23ffe066%22%20fill-opacity%3D%220.6%22%2F%3E%3C%2Fsvg%3E");
+  --dot-pattern-bg-2: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22150%22%20height%3D%22150%22%20viewBox%3D%220%200%20150%20150%22%3E%3Ccircle%20cx%3D%2277%22%20cy%3D%2279%22%20r%3D%2211%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22128%22%20cy%3D%2281%22%20r%3D%225%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2291%22%20cy%3D%2268%22%20r%3D%2210%22%20fill%3D%22%23c6e86a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2263%22%20cy%3D%22101%22%20r%3D%2212%22%20fill%3D%22%23ffab4a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2227%22%20cy%3D%2241%22%20r%3D%229%22%20fill%3D%22%23ffe066%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2287%22%20cy%3D%2219%22%20r%3D%2211%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2263%22%20cy%3D%22127%22%20r%3D%2214%22%20fill%3D%22%23c6e86a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2248%22%20cy%3D%2293%22%20r%3D%227%22%20fill%3D%22%23ffab4a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22111%22%20cy%3D%22147%22%20r%3D%228%22%20fill%3D%22%23ffab4a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22112%22%20cy%3D%2252%22%20r%3D%2211%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22127%22%20cy%3D%2221%22%20r%3D%2214%22%20fill%3D%22%23c6e86a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2258%22%20cy%3D%224%22%20r%3D%225%22%20fill%3D%22%23c6e86a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2275%22%20cy%3D%2279%22%20r%3D%227%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22110%22%20cy%3D%2213%22%20r%3D%2212%22%20fill%3D%22%23ffab4a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2267%22%20cy%3D%2295%22%20r%3D%2216%22%20fill%3D%22%23ffe066%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2270%22%20cy%3D%2253%22%20r%3D%225%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2263%22%20cy%3D%22114%22%20r%3D%228%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3C%2Fsvg%3E");
+  --dot-pattern-bg-3: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22150%22%20height%3D%22150%22%20viewBox%3D%220%200%20150%20150%22%3E%3Ccircle%20cx%3D%2290%22%20cy%3D%2267%22%20r%3D%2214%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2226%22%20cy%3D%2279%22%20r%3D%227%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22130%22%20cy%3D%2271%22%20r%3D%227%22%20fill%3D%22%23c6e86a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22112%22%20cy%3D%2246%22%20r%3D%226%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22103%22%20cy%3D%2292%22%20r%3D%224%22%20fill%3D%22%23ffe066%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22126%22%20cy%3D%228%22%20r%3D%2211%22%20fill%3D%22%23ffab4a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2240%22%20cy%3D%229%22%20r%3D%226%22%20fill%3D%22%23c6e86a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2280%22%20cy%3D%224%22%20r%3D%226%22%20fill%3D%22%23c6e86a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2273%22%20cy%3D%22121%22%20r%3D%228%22%20fill%3D%22%23ffe066%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%226%22%20cy%3D%228%22%20r%3D%2211%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2237%22%20cy%3D%2297%22%20r%3D%227%22%20fill%3D%22%23ffe066%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22111%22%20cy%3D%22129%22%20r%3D%2210%22%20fill%3D%22%23ffab4a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2243%22%20cy%3D%2244%22%20r%3D%225%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22102%22%20cy%3D%22104%22%20r%3D%2215%22%20fill%3D%22%23ffab4a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22142%22%20cy%3D%2265%22%20r%3D%2215%22%20fill%3D%22%23ffab4a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2217%22%20cy%3D%222%22%20r%3D%228%22%20fill%3D%22%23ffe066%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2292%22%20cy%3D%22135%22%20r%3D%225%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3C%2Fsvg%3E");
+  --dot-pattern-bg-4: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22150%22%20height%3D%22150%22%20viewBox%3D%220%200%20150%20150%22%3E%3Ccircle%20cx%3D%2264%22%20cy%3D%226%22%20r%3D%2212%22%20fill%3D%22%23ffe066%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2217%22%20cy%3D%22124%22%20r%3D%2215%22%20fill%3D%22%23c6e86a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%228%22%20cy%3D%2227%22%20r%3D%2215%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2274%22%20cy%3D%22103%22%20r%3D%229%22%20fill%3D%22%23ffab4a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2211%22%20r%3D%229%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22146%22%20cy%3D%229%22%20r%3D%227%22%20fill%3D%22%23ffab4a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2231%22%20r%3D%227%22%20fill%3D%22%23ffab4a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22122%22%20cy%3D%2278%22%20r%3D%2210%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2246%22%20cy%3D%2239%22%20r%3D%2211%22%20fill%3D%22%23ffe066%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22106%22%20cy%3D%2267%22%20r%3D%2212%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2217%22%20r%3D%228%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%221%22%20cy%3D%22140%22%20r%3D%226%22%20fill%3D%22%23c6e86a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2273%22%20cy%3D%22122%22%20r%3D%228%22%20fill%3D%22%23ffe066%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2241%22%20cy%3D%2298%22%20r%3D%2214%22%20fill%3D%22%23ffe066%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2258%22%20cy%3D%2285%22%20r%3D%228%22%20fill%3D%22%23c6e86a%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2256%22%20cy%3D%2262%22%20r%3D%228%22%20fill%3D%22%23ffe066%22%20fill-opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2295%22%20cy%3D%2282%22%20r%3D%2214%22%20fill%3D%22%238fe0f5%22%20fill-opacity%3D%220.6%22%2F%3E%3C%2Fsvg%3E");
   color-scheme: light;
 }
 
@@ -530,6 +533,7 @@ a {
   display: inline-block;
   font-size: 1.35em;
   line-height: 1.1;
+  color: var(--color-accent-orange);
 }
 
 .section__title-brush::after {
@@ -572,7 +576,7 @@ a {
 
 .section__lead-highlight-logo {
   display: block;
-  height: 2em;
+  height: clamp(4.16rem, 10.4vw, 5.72rem);
   margin: 0 0 0.1em;
 }
 
@@ -677,7 +681,7 @@ a {
   border-radius: 14px;
   border-left: 5px solid var(--color-accent-orange);
   background: rgba(255, 255, 255, 0.6);
-  background-image: var(--dot-pattern-bg);
+  background-image: var(--dot-pattern-bg-4);
   background-repeat: repeat;
   background-size: 90px 90px;
   animation: dot-pattern-drift 9s linear infinite;
@@ -724,6 +728,14 @@ a {
 .schedule-venue:hover {
   transform: translateY(-2px);
   box-shadow: 0 14px 28px rgba(58, 46, 38, 0.2);
+}
+
+.schedule-venue:nth-of-type(2) {
+  background-image: var(--dot-pattern-bg-2);
+}
+
+.schedule-venue:nth-of-type(3) {
+  background-image: var(--dot-pattern-bg-3);
 }
 
 .schedule-venue__arrow {
@@ -857,8 +869,7 @@ a {
 
 .achievement-card img {
   width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
+  height: auto;
   display: block;
 }
 
@@ -897,7 +908,7 @@ a {
   border-left: 5px solid var(--color-accent-orange);
   border-radius: 14px;
   background-color: rgba(255, 255, 255, 0.6);
-  background-image: var(--dot-pattern-bg);
+  background-image: var(--dot-pattern-bg-4);
   background-repeat: repeat;
   background-size: 90px 90px;
   animation: dot-pattern-drift 9s linear infinite;
