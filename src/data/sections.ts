@@ -108,7 +108,7 @@ export const mascotImages = {
 
 // 「歌楽ひろば とは」ページ下部に横スクロールで表示する活動風景の写真。
 export const karagakuHirobaGallery: GalleryPhoto[] = Array.from({ length: 16 }, (_, i) => i + 1)
-  .filter((n) => n !== 3 && n !== 5 && n !== 8)
+  .filter((n) => n !== 3 && n !== 4 && n !== 5 && n !== 6 && n !== 8)
   .map((n) => ({
     src: asset(`images/karagaku-hiroba-gallery-${String(n).padStart(2, '0')}.jpg`),
     alt: `歌楽ひろばの活動風景 ${n}`,
@@ -142,12 +142,12 @@ export const scheduleVenues: ScheduleVenue[] = [
   {
     id: 'kuumin',
     title: '歌楽ひろば　北斗市くーみん　開催スケジュール',
-    images: [],
+    images: [{ src: asset('images/schedule-kuumin.jpg'), alt: '北斗市くーみん会場スケジュール' }],
   },
   {
     id: 'shimin-kaikan',
     title: '歌楽ひろば　函館市民会館　開催スケジュール',
-    images: [],
+    images: [{ src: asset('images/schedule-shimin-kaikan.jpg'), alt: '函館市民会館会場スケジュール' }],
   },
 ];
 
@@ -194,7 +194,7 @@ export const sections: SiteSection[] = [
     lead: '歌楽ひろば　各会場にて定期開催！お気軽にお越しください',
     leadHighlight: '歌楽ひろば　各会場にて定期開催！お気軽にお越しください',
     body: [
-      '定期開催以外にもご依頼に応じて、お祭り、函館市内の公益施設、介護予防団体、町内会、シニア大学講師、北斗市町内会連合会などなど、様々な場所でも開催しております。ご依頼をお受けしておりますので、お気軽にお問い合わせください。',
+      '定期開催以外にもご依頼に応じて、お祭り、函館市内の公益施設、介護予防団体、町内会、シニア大学講師、北斗市町内会連合会などなど、様々な場所でも開催しております。ご依頼もお受けしておりますので、お気軽にお問い合わせください。',
     ],
     image: asset('images/aitahime-portrait.jpg'),
     imageFit: 'cover',

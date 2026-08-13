@@ -525,6 +525,25 @@ a {
   height: 2.6em;
 }
 
+.section__title-brush {
+  position: relative;
+  display: inline-block;
+  font-size: 1.35em;
+  line-height: 1.1;
+}
+
+.section__title-brush::after {
+  content: '';
+  position: absolute;
+  left: -0.08em;
+  right: -0.08em;
+  bottom: -0.22em;
+  height: 0.4em;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22220%22%20height%3D%2220%22%20viewBox%3D%220%200%20220%2020%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%220%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ffb74a%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23ef8fae%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D%22M4%2C10%20C30%2C2%2060%2C16%2090%2C8%20C120%2C0%20150%2C14%20180%2C6%20C195%2C2%20210%2C8%20216%2C10%20C210%2C14%20195%2C18%20180%2C14%20C150%2C20%20120%2C8%2090%2C16%20C60%2C6%2030%2C18%204%2C14%20C2%2C12%202%2C11%204%2C10%20Z%22%20fill%3D%22url(%23g)%22%20fill-opacity%3D%220.85%22%2F%3E%3C%2Fsvg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
 .section__lead {
   margin: 0 0 1rem;
   font-size: clamp(0.85rem, 3.7vw, 1.3rem);
@@ -549,6 +568,12 @@ a {
   paint-order: stroke fill;
   text-shadow: 0 3px 8px rgba(30, 20, 15, 0.35);
   animation: logo-scale-pulse 3s ease-in-out infinite;
+}
+
+.section__lead-highlight-logo {
+  display: block;
+  height: 2em;
+  margin: 0 0 0.1em;
 }
 
 .section__lead-highlight::after {
@@ -704,6 +729,20 @@ a {
 .schedule-venue__arrow {
   font-size: 1.3rem;
   color: var(--color-accent-orange);
+}
+
+.schedule-venue__break {
+  display: none;
+}
+
+.schedule-venue__suffix {
+  display: inline;
+}
+
+@media (max-width: 599px) {
+  .schedule-venue__break {
+    display: inline;
+  }
 }
 
 .schedule-modal-backdrop {

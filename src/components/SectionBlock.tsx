@@ -29,6 +29,8 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
             <>
               <img className="section__title-logo" src={logoMarkImage.src} alt="歌楽ひろば" /> とは
             </>
+          ) : section.id === 'profile' ? (
+            <span className="section__title-brush">{section.title}</span>
           ) : (
             section.title
           )}
@@ -36,8 +38,22 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
         {highlightIndex >= 0 && section.leadHighlight ? (
           <p className="section__lead">
             {wrapJa(section.lead!.slice(0, highlightIndex))}
-            <span className="section__lead-highlight" data-text={wrapJa(section.leadHighlight)}>
-              {wrapJa(section.leadHighlight)}
+            {section.id === 'schedule' && (
+              <img className="section__lead-highlight-logo" src={logoMarkImage.src} alt="歌楽ひろば" />
+            )}
+            <span
+              className="section__lead-highlight"
+              data-text={wrapJa(
+                section.id === 'schedule'
+                  ? section.leadHighlight.replace('歌楽ひろば', '')
+                  : section.leadHighlight,
+              )}
+            >
+              {wrapJa(
+                section.id === 'schedule'
+                  ? section.leadHighlight.replace('歌楽ひろば', '')
+                  : section.leadHighlight,
+              )}
             </span>
             {wrapJa(section.lead!.slice(highlightIndex + section.leadHighlight.length))}
           </p>

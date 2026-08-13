@@ -3,6 +3,8 @@ import { createPortal } from 'react-dom';
 import { scheduleVenues, specialEvents } from '../data/sections';
 import { wrapJa } from '../utils/wrapJa';
 
+const VENUE_TITLE_SUFFIX = '　開催スケジュール';
+
 export default function ScheduleList() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const closeDetail = () => setActiveId(null);
@@ -27,7 +29,19 @@ export default function ScheduleList() {
             className="schedule-venue"
             onClick={() => setActiveId(venue.id)}
           >
-            <span>{wrapJa(venue.title)}</span>
+            <span>
+              {wrapJa(
+                venue.title.endsWith(VENUE_TITLE_SUFFIX)
+                  ? venue.title.slice(0, -VENUE_TITLE_SUFFIX.length)
+                  : venue.title,
+              )}
+              {venue.title.endsWith(VENUE_TITLE_SUFFIX) && (
+                <>
+                  <br className="schedule-venue__break" />
+                  <span className="schedule-venue__suffix">{wrapJa('開催スケジュール')}</span>
+                </>
+              )}
+            </span>
             <span className="schedule-venue__arrow" aria-hidden="true">
               ›
             </span>
