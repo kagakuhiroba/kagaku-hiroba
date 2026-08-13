@@ -29,6 +29,11 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
             <>
               <img className="section__title-logo" src={logoMarkImage.src} alt="歌楽ひろば" /> とは
             </>
+          ) : section.id === 'achievements' ? (
+            <>
+              <img className="section__title-logo" src={logoMarkImage.src} alt="歌楽ひろば" />{' '}
+              {section.title}
+            </>
           ) : section.id === 'profile' ? (
             <span className="section__title-brush">{section.title}</span>
           ) : (
@@ -111,9 +116,9 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
               <div className="achievement-card" key={item.image}>
                 <img src={item.image} alt={item.alt} loading="lazy" />
                 <div className="achievement-card__body">
-                  <p className="achievement-card__date">{wrapJa(item.date)}</p>
+                  <p className="achievement-card__date">{wrapJa(`日付：${item.date}`)}</p>
                   <p className="achievement-card__title">{wrapJa(item.title)}</p>
-                  <p className="achievement-card__venue">{wrapJa(item.venue)}</p>
+                  <p className="achievement-card__venue">{wrapJa(`場所：${item.venue}`)}</p>
                 </div>
               </div>
             ))}

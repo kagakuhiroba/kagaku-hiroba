@@ -534,6 +534,9 @@ a {
   font-size: 1.35em;
   line-height: 1.1;
   color: var(--color-accent-orange);
+  -webkit-text-fill-color: var(--color-accent-orange);
+  -webkit-text-stroke: 2px #fff;
+  paint-order: stroke fill;
 }
 
 .section__title-brush::after {
@@ -568,6 +571,7 @@ a {
   word-break: keep-all;
   overflow-wrap: anywhere;
   color: #ff6a00;
+  -webkit-text-fill-color: #ff6a00;
   -webkit-text-stroke: 2px #ffe4bd;
   paint-order: stroke fill;
   text-shadow: 0 3px 8px rgba(30, 20, 15, 0.35);
@@ -585,6 +589,7 @@ a {
   position: absolute;
   inset: 0;
   color: transparent;
+  -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 0;
   background-image: linear-gradient(
     100deg,
@@ -859,7 +864,6 @@ a {
 
 .achievement-card {
   flex: 0 0 auto;
-  width: min(62vw, 280px);
   scroll-snap-align: start;
   background: #fff;
   border-radius: 16px;
@@ -868,9 +872,11 @@ a {
 }
 
 .achievement-card img {
-  width: 100%;
-  height: auto;
   display: block;
+  width: auto;
+  height: auto;
+  max-width: min(62vw, 280px);
+  max-height: 240px;
 }
 
 .achievement-card__body {
@@ -1002,8 +1008,8 @@ a {
     box-shadow: none;
   }
 
-  .achievement-card {
-    width: 210px;
+  .achievement-card img {
+    max-width: 210px;
   }
 }
 
