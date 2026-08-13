@@ -113,6 +113,7 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
                 <div className="achievement-card__body">
                   <p className="achievement-card__date">{wrapJa(item.date)}</p>
                   <p className="achievement-card__title">{wrapJa(item.title)}</p>
+                  <p className="achievement-card__venue">{wrapJa(item.venue)}</p>
                 </div>
               </div>
             ))}
