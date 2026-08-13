@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { scheduleVenues, specialEvents } from '../data/sections';
+import { logoImage2, scheduleVenues, specialEvents } from '../data/sections';
 import { wrapJa } from '../utils/wrapJa';
-
-const VENUE_TITLE_SUFFIX = '　開催スケジュール';
 
 export default function ScheduleList() {
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -29,18 +27,10 @@ export default function ScheduleList() {
             className="schedule-venue"
             onClick={() => setActiveId(venue.id)}
           >
-            <span>
-              {wrapJa(
-                venue.title.endsWith(VENUE_TITLE_SUFFIX)
-                  ? venue.title.slice(0, -VENUE_TITLE_SUFFIX.length)
-                  : venue.title,
-              )}
-              {venue.title.endsWith(VENUE_TITLE_SUFFIX) && (
-                <>
-                  <br className="schedule-venue__break" />
-                  <span className="schedule-venue__suffix">{wrapJa('開催スケジュール')}</span>
-                </>
-              )}
+            <img className="schedule-venue__logo" src={logoImage2.src} alt="歌楽ひろば" />
+            <span className="schedule-venue__text">
+              <span className="schedule-venue__name">{wrapJa(venue.venue)}</span>
+              <span className="schedule-venue__suffix">{wrapJa('開催スケジュール')}</span>
             </span>
             <span className="schedule-venue__arrow" aria-hidden="true">
               ›

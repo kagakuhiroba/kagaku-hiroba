@@ -20,6 +20,7 @@ export interface AchievementItem {
 export interface ScheduleVenue {
   id: string;
   title: string;
+  venue: string;
   images: GalleryPhoto[];
 }
 
@@ -101,6 +102,12 @@ export const logoMarkImage = {
   alt: '歌楽ひろば ロゴ「歌でいきいき、楽しい時間を」',
 };
 
+// 開催スケジュールボタン用のロゴ(黒縁取り・音符つきデザイン)。
+export const logoImage2 = {
+  src: asset('images/karagaku-hiroba-logo-2.png'),
+  alt: '歌楽ひろば',
+};
+
 // 画面右下に常時表示するマスコットイラスト。
 export const mascotImages = {
   open: asset('images/hime-mascot-open.png'),
@@ -138,16 +145,19 @@ export const scheduleVenues: ScheduleVenue[] = [
   {
     id: 'g-square',
     title: '歌楽ひろば　Gスクエア　開催スケジュール',
+    venue: 'Gスクエア',
     images: [{ src: asset('images/schedule-g-square.jpg'), alt: 'Gスクエア会場スケジュール' }],
   },
   {
     id: 'kuumin',
     title: '歌楽ひろば　北斗市くーみん　開催スケジュール',
+    venue: '北斗市くーみん',
     images: [{ src: asset('images/schedule-kuumin.jpg'), alt: '北斗市くーみん会場スケジュール' }],
   },
   {
     id: 'shimin-kaikan',
     title: '歌楽ひろば　函館市民会館　開催スケジュール',
+    venue: '函館市民会館',
     images: [{ src: asset('images/schedule-shimin-kaikan.jpg'), alt: '函館市民会館会場スケジュール' }],
   },
 ];

@@ -114,7 +114,21 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
           <div className="achievement-scroll">
             {section.achievements.map((item) => (
               <div className="achievement-card" key={item.image}>
-                <img src={item.image} alt={item.alt} loading="lazy" />
+                <div className="achievement-card__photo">
+                  <img
+                    className="achievement-card__photo-bg"
+                    src={item.image}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                  />
+                  <img
+                    className="achievement-card__photo-fg"
+                    src={item.image}
+                    alt={item.alt}
+                    loading="lazy"
+                  />
+                </div>
                 <div className="achievement-card__body">
                   <p className="achievement-card__date">{wrapJa(`日付：${item.date}`)}</p>
                   <p className="achievement-card__title">{wrapJa(item.title)}</p>

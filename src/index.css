@@ -743,23 +743,40 @@ a {
   background-image: var(--dot-pattern-bg-3);
 }
 
-.schedule-venue__arrow {
-  font-size: 1.3rem;
-  color: var(--color-accent-orange);
+.schedule-venue__logo {
+  height: 2.6rem;
+  width: auto;
+  flex-shrink: 0;
 }
 
-.schedule-venue__break {
-  display: none;
+.schedule-venue__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.schedule-venue__name {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--color-text);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .schedule-venue__suffix {
-  display: inline;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-soft);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
-@media (max-width: 599px) {
-  .schedule-venue__break {
-    display: inline;
-  }
+.schedule-venue__arrow {
+  font-size: 1.3rem;
+  color: var(--color-accent-orange);
+  flex-shrink: 0;
 }
 
 .schedule-modal-backdrop {
@@ -871,12 +888,38 @@ a {
   box-shadow: 0 10px 24px rgba(58, 46, 38, 0.16);
 }
 
-.achievement-card img {
+.achievement-card > img {
   display: block;
   width: auto;
   height: auto;
   max-width: min(62vw, 280px);
   max-height: 240px;
+}
+
+.achievement-card__photo {
+  position: relative;
+  width: min(62vw, 280px);
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.achievement-card__photo-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(6px);
+  opacity: 0.35;
+  transform: scale(1.1);
+}
+
+.achievement-card__photo-fg {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .achievement-card__body {
@@ -1008,8 +1051,12 @@ a {
     box-shadow: none;
   }
 
-  .achievement-card img {
+  .achievement-card > img {
     max-width: 210px;
+  }
+
+  .achievement-card__photo {
+    width: 210px;
   }
 }
 
