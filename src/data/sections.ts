@@ -333,6 +333,10 @@ export const sections: SiteSection[] = [
     links: [
       { label: 'TEL：090-6876-5725', href: 'tel:09068765725' },
       { label: 'Mail：hakodate.aita@gmail.com', href: 'mailto:hakodate.aita@gmail.com' },
+      {
+        label: 'あいたひめインスタグラム',
+        href: 'https://www.instagram.com/hakodate_hime/?utm_source=ig_web_button_share_sheet',
+      },
     ],
     image: asset('images/contact-splatter-logo.jpg'),
     imageFit: 'cover',

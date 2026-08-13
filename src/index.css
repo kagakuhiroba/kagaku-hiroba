@@ -1062,6 +1062,16 @@ a {
   }
 }
 
+@media (max-width: 599px) {
+  .schedule-venue__logo {
+    height: 2rem;
+  }
+
+  .schedule-venue__name {
+    font-size: 1.02rem;
+  }
+}
+
 /* ---------- Reduced motion ---------- */
 
 @media (prefers-reduced-motion: reduce) {
