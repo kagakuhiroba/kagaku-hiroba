@@ -42,7 +42,7 @@ export default function ScheduleList() {
       <div className="special-events">
         <p className="special-events__label">
           <img className="schedule-venue__logo" src={logoImage2.src} alt="歌楽ひろば" />
-          {wrapJa('特別編')}
+          <span className="schedule-venue__name">{wrapJa('特別編')}</span>
         </p>
         <div className="achievement-scroll">
           {specialEvents.map((event) => (

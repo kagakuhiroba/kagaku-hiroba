@@ -1,6 +1,7 @@
 import { logoMarkImage, type SiteSection } from '../data/sections';
 import { useReveal } from '../hooks/useReveal';
 import { wrapJa } from '../utils/wrapJa';
+import AchievementScroll from './AchievementScroll';
 import ScheduleList from './ScheduleList';
 
 // 句点(。)ごとに文を分割し、1文ずつ独立した段落として表示する。
@@ -111,35 +112,7 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
           </div>
         )}
         {section.achievements && section.achievements.length > 0 && (
-          <div className="achievement-scroll">
-            {section.achievements.map((item) => (
-              <div className="achievement-card" key={item.image}>
-                <div className="achievement-card__photo">
-                  <img
-                    className="achievement-card__photo-bg"
-                    src={item.image}
-                    alt=""
-                    aria-hidden="true"
-                    loading="lazy"
-                  />
-                  <img
-                    className="achievement-card__photo-fg"
-                    src={item.image}
-                    alt={item.alt}
-                    loading="lazy"
-                  />
-                </div>
-                <div className="achievement-card__body">
-                  <p className="achievement-card__date">{wrapJa(`日付：${item.date}`)}</p>
-                  <p className="achievement-card__title">{wrapJa(item.title)}</p>
-                  <p className="achievement-card__venue">{wrapJa(`場所：${item.venue}`)}</p>
-                  <p className="achievement-card__detail">
-                    {item.detail ? wrapJa(item.detail) : ' '}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <AchievementScroll items={section.achievements} />
         )}
       </div>
     </section>
