@@ -5,6 +5,8 @@ import { useScrollDots } from '../hooks/useScrollDots';
 import { wrapJa } from '../utils/wrapJa';
 import ScrollDots from './ScrollDots';
 
+const todayISO = new Date().toISOString().slice(0, 10);
+
 export default function ScheduleList() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const closeDetail = () => setActiveId(null);
@@ -64,6 +66,9 @@ export default function ScheduleList() {
                   alt={event.alt}
                   loading="lazy"
                 />
+                {event.dateISO < todayISO && (
+                  <span className="achievement-card__ended-badge">終了しました</span>
+                )}
               </div>
               <div className="achievement-card__body">
                 <p className="achievement-card__date">{wrapJa(event.date)}</p>
