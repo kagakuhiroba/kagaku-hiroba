@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { logoImage2, scheduleVenues, specialEvents } from '../data/sections';
+import { useScrollDots } from '../hooks/useScrollDots';
 import { wrapJa } from '../utils/wrapJa';
+import ScrollDots from './ScrollDots';
 
 export default function ScheduleList() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const closeDetail = () => setActiveId(null);
   const active = scheduleVenues.find((venue) => venue.id === activeId);
+  const specialEventsScroll = useScrollDots<HTMLDivElement>();
 
   useEffect(() => {
     if (!activeId) return;
@@ -44,7 +47,7 @@ export default function ScheduleList() {
           <img className="schedule-venue__logo" src={logoImage2.src} alt="歌楽ひろば" />
           <span className="schedule-venue__name">{wrapJa('特別編')}</span>
         </p>
-        <div className="achievement-scroll">
+        <div className="achievement-scroll" ref={specialEventsScroll.scrollRef}>
           {specialEvents.map((event) => (
             <div className="achievement-card" key={event.image}>
               <div className="achievement-card__photo">
@@ -70,6 +73,12 @@ export default function ScheduleList() {
             </div>
           ))}
         </div>
+        <ScrollDots
+          count={specialEvents.length}
+          activeIndex={specialEventsScroll.activeIndex}
+          onSelect={specialEventsScroll.scrollToIndex}
+          label="特別編を選ぶ"
+        />
       </div>
 
       {active &&

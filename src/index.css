@@ -879,14 +879,14 @@ a {
   -webkit-overflow-scrolling: touch;
 }
 
-.achievement-dots {
+.scroll-dots {
   display: flex;
   justify-content: center;
   gap: 0.6rem;
   margin-top: 0.25rem;
 }
 
-.achievement-dot {
+.scroll-dot {
   width: 9px;
   height: 9px;
   padding: 0;
@@ -897,7 +897,7 @@ a {
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.achievement-dot.is-active {
+.scroll-dot.is-active {
   background: var(--color-accent-orange);
   transform: scale(1.35);
 }

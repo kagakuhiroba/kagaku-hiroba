@@ -2,6 +2,7 @@ import { logoMarkImage, type SiteSection } from '../data/sections';
 import { useReveal } from '../hooks/useReveal';
 import { wrapJa } from '../utils/wrapJa';
 import AchievementScroll from './AchievementScroll';
+import PhotoScrollGallery from './PhotoScrollGallery';
 import ScheduleList from './ScheduleList';
 
 // 句点(。)ごとに文を分割し、1文ずつ独立した段落として表示する。
@@ -99,17 +100,7 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
         )}
         {section.id === 'schedule' && <ScheduleList />}
         {section.gallery && section.gallery.length > 0 && (
-          <div className="photo-scroll">
-            {section.gallery.map((photo) => (
-              <img
-                key={photo.src}
-                className="photo-scroll__img"
-                src={photo.src}
-                alt={photo.alt}
-                loading="lazy"
-              />
-            ))}
-          </div>
+          <PhotoScrollGallery photos={section.gallery} />
         )}
         {section.achievements && section.achievements.length > 0 && (
           <AchievementScroll items={section.achievements} />

@@ -1,46 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
 import type { AchievementItem } from '../data/sections';
+import { useScrollDots } from '../hooks/useScrollDots';
 import { wrapJa } from '../utils/wrapJa';
+import ScrollDots from './ScrollDots';
 
 export default function AchievementScroll({ items }: { items: AchievementItem[] }) {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-
-    let ticking = false;
-    const updateActiveIndex = () => {
-      ticking = false;
-      const children = Array.from(el.children) as HTMLElement[];
-      let closest = 0;
-      let closestDistance = Infinity;
-      children.forEach((child, i) => {
-        const distance = Math.abs(child.offsetLeft - el.scrollLeft);
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closest = i;
-        }
-      });
-      setActiveIndex(closest);
-    };
-
-    const handleScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(updateActiveIndex);
-    };
-
-    el.addEventListener('scroll', handleScroll, { passive: true });
-    return () => el.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToCard = (index: number) => {
-    const el = scrollRef.current;
-    const card = el?.children[index] as HTMLElement | undefined;
-    card?.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
-  };
+  const { scrollRef, activeIndex, scrollToIndex } = useScrollDots<HTMLDivElement>();
 
   return (
     <>
@@ -66,19 +30,12 @@ export default function AchievementScroll({ items }: { items: AchievementItem[] 
           </div>
         ))}
       </div>
-      <div className="achievement-dots" role="tablist" aria-label="活動実績を選ぶ">
-        {items.map((item, i) => (
-          <button
-            key={item.image}
-            type="button"
-            role="tab"
-            className={`achievement-dot${i === activeIndex ? ' is-active' : ''}`}
-            aria-selected={i === activeIndex}
-            aria-label={`${i + 1}枚目`}
-            onClick={() => scrollToCard(i)}
-          />
-        ))}
-      </div>
+      <ScrollDots
+        count={items.length}
+        activeIndex={activeIndex}
+        onSelect={scrollToIndex}
+        label="活動実績を選ぶ"
+      />
     </>
   );
 }
