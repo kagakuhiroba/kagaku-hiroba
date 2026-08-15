@@ -54,29 +54,39 @@ const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 
 export const heroImages = [
   {
-    src: asset('images/aitahime-portrait.jpg'),
-    alt: '函館・旧函館区公会堂前で微笑むあいたひめ',
-    focus: 'center 75%',
-  },
-  {
-    src: asset('images/hero-goryokaku-flower.jpg'),
-    alt: '五稜郭タワーを背景に立つあいたひめ',
-    focus: 'center 65%',
-  },
-  {
-    src: asset('images/hero-blue-glow.jpg'),
-    alt: '青い照明の中で歌うあいたひめ',
+    src: asset('images/hero-goryokaku-festival.jpg'),
+    alt: '五稜郭タワーを背景に歌うあいたひめ',
     focus: 'center 30%',
   },
   {
-    src: asset('images/hero-pink-curtain.jpg'),
-    alt: 'ステージで表情豊かに歌うあいたひめ',
-    focus: 'center 60%',
+    src: asset('images/hero-showa-photo.jpg'),
+    alt: '昭和レトロなステージで歌うあいたひめ',
+    focus: 'center 5%',
   },
   {
-    src: asset('images/hero-christmas.jpg'),
-    alt: 'クリスマスイベントで歌うあいたひめ',
-    focus: 'center 20%',
+    src: asset('images/hero-christmas-2.jpg'),
+    alt: 'クリスマスイベントで笑顔のあいたひめ',
+    focus: 'center 30%',
+  },
+  {
+    src: asset('images/hero-birthstick.jpg'),
+    alt: 'ドラムバースティックスで歌うあいたひめ',
+    focus: 'center 30%',
+  },
+  {
+    src: asset('images/hero-bluepoint.jpg'),
+    alt: 'ブルーポイントのステージで歌うあいたひめ',
+    focus: 'center 55%',
+  },
+  {
+    src: asset('images/hero-umi-no-hi.jpg'),
+    alt: '海の日のイベントで歌うあいたひめ',
+    focus: 'center 25%',
+  },
+  {
+    src: asset('images/hero-showa-photo-2.jpg'),
+    alt: '赤い衣装で表情豊かに歌うあいたひめ',
+    focus: 'center 25%',
   },
 ];
 
