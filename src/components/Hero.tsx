@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type CSSProperties } from 'react';
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import { heroImages, logoImage, noteSprites, sections } from '../data/sections';
 
 const SLIDE_INTERVAL_MS = 3000;
@@ -28,7 +28,9 @@ function createNoteParticles() {
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
+  const [fadeOpacity, setFadeOpacity] = useState(1);
   const notes = useMemo(createNoteParticles, []);
+  const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -37,109 +39,134 @@ export default function Hero() {
     return () => clearInterval(timer);
   }, [index]);
 
+  // 最初のページ(ヒーロー)から次のセクションへスクロールした際、ヒーローの内容をフェードアウトさせる。
+  useEffect(() => {
+    const el = heroRef.current;
+    if (!el) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const height = el.offsetHeight || window.innerHeight;
+      const progress = Math.min(Math.max(window.scrollY / height, 0), 1);
+      setFadeOpacity(1 - progress);
+    };
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    update();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   const goTo = (target: number) => {
     setIndex((target + heroImages.length) % heroImages.length);
   };
 
   return (
-    <section className="hero" aria-label="歌楽ひろば">
-      <div className="hero__slides">
-        {heroImages.map((image, i) => (
-          <div
-            key={image.src}
-            className={`hero__slide${i === index ? ' is-active' : ''}`}
-            style={{ backgroundImage: `url(${image.src})`, backgroundPosition: image.focus }}
-            role="img"
-            aria-label={image.alt}
-            aria-hidden={i === index ? undefined : true}
-          />
-        ))}
-      </div>
-      <div className="hero__scrim" />
-
-      <div className="hero__notes" aria-hidden="true">
-        {notes.map((note) => (
-          <img
-            key={note.key}
-            className="hero__note"
-            src={note.sprite}
-            alt=""
-            style={
-              {
-                left: `${note.left}%`,
-                top: `${note.topStart}%`,
-                width: `${note.size}px`,
-                animationDuration: `${note.duration}s`,
-                animationDelay: `${note.delay}s`,
-                '--note-drift': `${note.drift}px`,
-                '--note-travel': `${note.travel}vh`,
-              } as CSSProperties
-            }
-          />
-        ))}
-      </div>
-
-      <nav className="hero__pagenav" aria-label="ページ内ナビゲーション">
-        {sections.map((section) => (
-          <a key={section.id} href={`#${section.id}`}>
-            {section.navLabel ?? section.title}
-          </a>
-        ))}
-      </nav>
-
-      <button
-        type="button"
-        className="hero__nav hero__nav--prev"
-        onClick={() => goTo(index - 1)}
-        aria-label="前の写真"
-      >
-        ‹
-      </button>
-      <button
-        type="button"
-        className="hero__nav hero__nav--next"
-        onClick={() => goTo(index + 1)}
-        aria-label="次の写真"
-      >
-        ›
-      </button>
-
-      <div className="hero__logo-wrap">
-        <div className="hero__logo-frame">
-          <img className="hero__logo" src={logoImage.src} alt={logoImage.alt} />
-          <div
-            className="hero__logo-shine"
-            aria-hidden="true"
-            style={{
-              WebkitMaskImage: `url(${logoImage.src})`,
-              maskImage: `url(${logoImage.src})`,
-            }}
-          />
-        </div>
-        <p className="hero__by">
-          <span className="hero__by-label">sponsored by</span>
-          <span className="hero__by-name">あいたひめ</span>
-        </p>
-      </div>
-
-      <div className="hero__foot">
-        <div className="hero__dots" role="tablist" aria-label="表示する写真を選ぶ">
+    <section className="hero" aria-label="歌楽ひろば" ref={heroRef}>
+      <div className="hero__fade" style={{ opacity: fadeOpacity }}>
+        <div className="hero__slides">
           {heroImages.map((image, i) => (
-            <button
+            <div
               key={image.src}
-              type="button"
-              role="tab"
-              className={`hero__dot${i === index ? ' is-active' : ''}`}
-              aria-selected={i === index}
-              aria-label={`写真 ${i + 1}枚目`}
-              onClick={() => goTo(i)}
+              className={`hero__slide${i === index ? ' is-active' : ''}`}
+              style={{ backgroundImage: `url(${image.src})`, backgroundPosition: image.focus }}
+              role="img"
+              aria-label={image.alt}
+              aria-hidden={i === index ? undefined : true}
             />
           ))}
         </div>
-        <a className="hero__cta" href="#profile" aria-label="スクロールして次へ">
-          <span>Scroll</span>
-          <span className="hero__cta-line" aria-hidden="true" />
-        </a>
+        <div className="hero__scrim" />
+
+        <div className="hero__notes" aria-hidden="true">
+          {notes.map((note) => (
+            <img
+              key={note.key}
+              className="hero__note"
+              src={note.sprite}
+              alt=""
+              style={
+                {
+                  left: `${note.left}%`,
+                  top: `${note.topStart}%`,
+                  width: `${note.size}px`,
+                  animationDuration: `${note.duration}s`,
+                  animationDelay: `${note.delay}s`,
+                  '--note-drift': `${note.drift}px`,
+                  '--note-travel': `${note.travel}vh`,
+                } as CSSProperties
+              }
+            />
+          ))}
+        </div>
+
+        <nav className="hero__pagenav" aria-label="ページ内ナビゲーション">
+          {sections.map((section) => (
+            <a key={section.id} href={`#${section.id}`}>
+              {section.navLabel ?? section.title}
+            </a>
+          ))}
+        </nav>
+
+        <button
+          type="button"
+          className="hero__nav hero__nav--prev"
+          onClick={() => goTo(index - 1)}
+          aria-label="前の写真"
+        >
+          ‹
+        </button>
+        <button
+          type="button"
+          className="hero__nav hero__nav--next"
+          onClick={() => goTo(index + 1)}
+          aria-label="次の写真"
+        >
+          ›
+        </button>
+
+        <div className="hero__logo-wrap">
+          <div className="hero__logo-frame">
+            <img className="hero__logo" src={logoImage.src} alt={logoImage.alt} />
+            <div
+              className="hero__logo-shine"
+              aria-hidden="true"
+              style={{
+                WebkitMaskImage: `url(${logoImage.src})`,
+                maskImage: `url(${logoImage.src})`,
+              }}
+            />
+          </div>
+          <p className="hero__by">
+            <span className="hero__by-label">sponsored by</span>
+            <span className="hero__by-name">あいたひめ</span>
+          </p>
+        </div>
+
+        <div className="hero__foot">
+          <div className="hero__dots" role="tablist" aria-label="表示する写真を選ぶ">
+            {heroImages.map((image, i) => (
+              <button
+                key={image.src}
+                type="button"
+                role="tab"
+                className={`hero__dot${i === index ? ' is-active' : ''}`}
+                aria-selected={i === index}
+                aria-label={`写真 ${i + 1}枚目`}
+                onClick={() => goTo(i)}
+              />
+            ))}
+          </div>
+          <a className="hero__cta" href="#profile" aria-label="スクロールして次へ">
+            <span>Scroll</span>
+            <span className="hero__cta-line" aria-hidden="true" />
+          </a>
+        </div>
       </div>
     </section>
   );
