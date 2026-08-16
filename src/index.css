@@ -172,7 +172,7 @@ a {
 .hero__logo-wrap {
   position: absolute;
   left: 50%;
-  top: 34%;
+  top: 37%;
   transform: translate(-50%, -50%);
   z-index: 1;
   width: 100%;
@@ -520,8 +520,8 @@ a {
 }
 
 .section__title-photo {
-  height: 2.6em;
-  width: 2.6em;
+  height: 3.6em;
+  width: 3.6em;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 6px 14px rgba(58, 46, 38, 0.22);
