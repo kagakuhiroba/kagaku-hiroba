@@ -644,38 +644,55 @@ a {
   }
 }
 
-.section__inner--profile .section__body-image,
-.section__inner--profile .section__body p {
+.section__inner .section__lead,
+.section__inner .section__body-image,
+.section__inner .section__body p,
+.section__inner .photo-scroll,
+.section__inner .achievement-scroll,
+.section__inner .schedule-content {
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-.section__inner--profile.is-visible .section__body-image {
+.section__inner.is-visible .section__lead {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section__inner.is-visible .section__body-image {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.15s;
 }
 
-.section__inner--profile.is-visible .section__body p {
+.section__inner.is-visible .section__body p {
   opacity: 1;
   transform: translateY(0);
 }
 
-.section__inner--profile.is-visible .section__body p:nth-of-type(1) {
+.section__inner.is-visible .section__body p:nth-of-type(1) {
   transition-delay: 0.35s;
 }
 
-.section__inner--profile.is-visible .section__body p:nth-of-type(2) {
+.section__inner.is-visible .section__body p:nth-of-type(2) {
   transition-delay: 0.5s;
 }
 
-.section__inner--profile.is-visible .section__body p:nth-of-type(3) {
+.section__inner.is-visible .section__body p:nth-of-type(3) {
   transition-delay: 0.65s;
 }
 
-.section__inner--profile.is-visible .section__body p:nth-of-type(n + 4) {
+.section__inner.is-visible .section__body p:nth-of-type(n + 4) {
   transition-delay: 0.8s;
+}
+
+.section__inner.is-visible .photo-scroll,
+.section__inner.is-visible .achievement-scroll,
+.section__inner.is-visible .schedule-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
 }
 
 @media (max-width: 599px) {
@@ -903,6 +920,59 @@ a {
   overflow-wrap: anywhere;
 }
 
+.achievement-card__photo--clickable {
+  display: block;
+  appearance: none;
+  border: none;
+  padding: 0;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+  background: rgba(20, 14, 10, 0.85);
+  animation: schedule-modal-fade-in 0.2s ease both;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  cursor: default;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
 .achievement-scroll {
   display: flex;
   gap: 1rem;
@@ -1026,7 +1096,7 @@ a {
 }
 
 #achievements .achievement-card__body {
-  background: #fff8dc;
+  background: #fff;
 }
 
 .special-events {
@@ -1165,6 +1235,12 @@ a {
   #achievements .achievement-card__detail {
     font-size: 0.9rem;
   }
+
+  .section__body-image {
+    float: right;
+    width: clamp(96px, 34vw, 160px);
+    margin: 0 0 0.6rem 0.9rem;
+  }
 }
 
 /* ---------- Reduced motion ---------- */
@@ -1226,8 +1302,12 @@ a {
     transform: none;
   }
 
-  .section__inner--profile .section__body-image,
-  .section__inner--profile .section__body p {
+  .section__inner .section__lead,
+  .section__inner .section__body-image,
+  .section__inner .section__body p,
+  .section__inner .photo-scroll,
+  .section__inner .achievement-scroll,
+  .section__inner .schedule-content {
     transition: none;
     opacity: 1;
     transform: none;

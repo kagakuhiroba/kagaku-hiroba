@@ -38,6 +38,11 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
             </>
           ) : section.id === 'profile' ? (
             <span className="section__title-brush">{section.title}</span>
+          ) : section.id === 'schedule' ? (
+            <>
+              <img className="section__title-logo" src={logoMarkImage.src} alt="歌楽ひろば" />{' '}
+              今後の予定
+            </>
           ) : (
             section.title
           )}
@@ -74,7 +79,6 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
                 className="section__body-image"
                 src={section.bodyImage.src}
                 alt={section.bodyImage.alt}
-                loading="lazy"
               />
             )}
             {sentences.map((sentence, i) => (

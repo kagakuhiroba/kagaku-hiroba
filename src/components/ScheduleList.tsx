@@ -9,18 +9,22 @@ const todayISO = new Date().toISOString().slice(0, 10);
 
 export default function ScheduleList() {
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
   const closeDetail = () => setActiveId(null);
+  const closeLightbox = () => setLightbox(null);
   const active = scheduleVenues.find((venue) => venue.id === activeId);
   const specialEventsScroll = useScrollDots<HTMLDivElement>();
 
   useEffect(() => {
-    if (!activeId) return;
+    if (!activeId && !lightbox) return;
     const closeOnEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') closeDetail();
+      if (e.key !== 'Escape') return;
+      closeDetail();
+      closeLightbox();
     };
     document.addEventListener('keydown', closeOnEscape);
     return () => document.removeEventListener('keydown', closeOnEscape);
-  }, [activeId]);
+  }, [activeId, lightbox]);
 
   return (
     <div className="schedule-content">
@@ -52,7 +56,12 @@ export default function ScheduleList() {
         <div className="achievement-scroll" ref={specialEventsScroll.scrollRef}>
           {specialEvents.map((event) => (
             <div className="achievement-card" key={event.image}>
-              <div className="achievement-card__photo">
+              <button
+                type="button"
+                className="achievement-card__photo achievement-card__photo--clickable"
+                onClick={() => setLightbox({ src: event.image, alt: event.alt })}
+                aria-label={`${event.title}のポスターを拡大表示`}
+              >
                 <img
                   className="achievement-card__photo-bg"
                   src={event.image}
@@ -69,7 +78,7 @@ export default function ScheduleList() {
                 {event.dateISO < todayISO && (
                   <span className="achievement-card__ended-badge">終了しました</span>
                 )}
-              </div>
+              </button>
               <div className="achievement-card__body">
                 <p className="achievement-card__date">{wrapJa(event.date)}</p>
                 <p className="achievement-card__title">{wrapJa(event.title)}</p>
@@ -114,6 +123,27 @@ export default function ScheduleList() {
                 </p>
               )}
             </div>
+          </div>,
+          document.body,
+        )}
+
+      {lightbox &&
+        createPortal(
+          <div className="lightbox-backdrop" onClick={closeLightbox}>
+            <button
+              type="button"
+              className="lightbox-close"
+              onClick={closeLightbox}
+              aria-label="閉じる"
+            >
+              ×
+            </button>
+            <img
+              className="lightbox-image"
+              src={lightbox.src}
+              alt={lightbox.alt}
+              onClick={(e) => e.stopPropagation()}
+            />
           </div>,
           document.body,
         )}
