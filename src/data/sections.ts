@@ -74,9 +74,9 @@ export const heroImages = [
     focus: 'center 30%',
   },
   {
-    src: asset('images/hero-bluepoint.jpg'),
-    alt: 'ブルーポイントのステージで歌うあいたひめ',
-    focus: 'center 55%',
+    src: asset('images/hero-kagaku-concert-photo.jpg'),
+    alt: '歌楽コンサートのステージで歌うあいたひめ',
+    focus: 'center 20%',
   },
   {
     src: asset('images/hero-umi-no-hi.jpg'),

@@ -295,15 +295,6 @@ a {
   gap: 0.4em;
 }
 
-.hero__by-label {
-  color: rgba(255, 255, 255, 0.85);
-  letter-spacing: 0.14em;
-  font-size: clamp(0.65rem, 2vw, 0.85rem);
-  font-weight: 600;
-  text-transform: uppercase;
-  text-shadow: 0 4px 10px rgba(30, 20, 15, 0.4);
-}
-
 .hero__by-name {
   color: var(--color-accent-orange);
   letter-spacing: 0.16em;
@@ -528,6 +519,23 @@ a {
   height: 2.6em;
 }
 
+.section__title-photo {
+  height: 2.6em;
+  width: 2.6em;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 6px 14px rgba(58, 46, 38, 0.22);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition-delay: 0.15s;
+}
+
+.section__inner.is-visible .section__title-photo {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .section__title-brush {
   position: relative;
   display: inline-block;
@@ -578,12 +586,6 @@ a {
   animation: logo-scale-pulse 3s ease-in-out infinite;
 }
 
-.section__lead-highlight-logo {
-  display: block;
-  height: clamp(4.16rem, 10.4vw, 5.72rem);
-  margin: 0 0 0.1em;
-}
-
 .section__lead-highlight::after {
   content: attr(data-text);
   position: absolute;
@@ -628,24 +630,7 @@ a {
   overflow-wrap: anywhere;
 }
 
-.section__body-image {
-  float: none;
-  width: min(70%, 260px);
-  margin: 0 auto 1rem;
-  border-radius: 16px;
-  box-shadow: 0 10px 24px rgba(58, 46, 38, 0.18);
-}
-
-@media (min-width: 600px) {
-  .section__body-image {
-    float: right;
-    width: clamp(120px, 38%, 220px);
-    margin: 0 0 0.75rem 1.25rem;
-  }
-}
-
 .section__inner .section__lead,
-.section__inner .section__body-image,
 .section__inner .section__body p,
 .section__inner .photo-scroll,
 .section__inner .achievement-scroll,
@@ -658,12 +643,6 @@ a {
 .section__inner.is-visible .section__lead {
   opacity: 1;
   transform: translateY(0);
-}
-
-.section__inner.is-visible .section__body-image {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.15s;
 }
 
 .section__inner.is-visible .section__body p {
@@ -1235,12 +1214,6 @@ a {
   #achievements .achievement-card__detail {
     font-size: 0.9rem;
   }
-
-  .section__body-image {
-    float: right;
-    width: clamp(96px, 34vw, 160px);
-    margin: 0 0 0.6rem 0.9rem;
-  }
 }
 
 /* ---------- Reduced motion ---------- */
@@ -1303,7 +1276,7 @@ a {
   }
 
   .section__inner .section__lead,
-  .section__inner .section__body-image,
+  .section__inner .section__title-photo,
   .section__inner .section__body p,
   .section__inner .photo-scroll,
   .section__inner .achievement-scroll,

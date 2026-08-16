@@ -49,7 +49,9 @@ export default function Hero() {
     const update = () => {
       ticking = false;
       const height = el.offsetHeight || window.innerHeight;
-      const progress = Math.min(Math.max(window.scrollY / height, 0), 1);
+      // ヒーローの高さの40%分スクロールするまではフェードを開始せず、残りの60%で一気にフェードアウトさせる。
+      const fadeStart = height * 0.4;
+      const progress = Math.min(Math.max((window.scrollY - fadeStart) / (height - fadeStart), 0), 1);
       setFadeOpacity(1 - progress);
     };
     const onScroll = () => {
@@ -143,7 +145,6 @@ export default function Hero() {
             />
           </div>
           <p className="hero__by">
-            <span className="hero__by-label">sponsored by</span>
             <span className="hero__by-name">あいたひめ</span>
           </p>
         </div>
