@@ -26,36 +26,38 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
         ref={ref}
         className={`section__inner section__inner--${section.id}${visible ? ' is-visible' : ''}`}
       >
-        <h2 className="section__title">
-          {section.id === 'about' ? (
-            <>
-              <img className="section__title-logo" src={logoMarkImage.src} alt="歌楽ひろば" /> とは
-            </>
-          ) : section.id === 'achievements' ? (
-            <>
-              <img className="section__title-logo" src={logoMarkImage.src} alt="歌楽ひろば" />{' '}
-              {section.title}
-            </>
-          ) : section.id === 'profile' ? (
-            <>
-              <span className="section__title-brush">{section.title}</span>
-              {section.bodyImage && (
-                <img
-                  className="section__title-photo"
-                  src={section.bodyImage.src}
-                  alt={section.bodyImage.alt}
-                />
-              )}
-            </>
-          ) : section.id === 'schedule' ? (
-            <>
-              <img className="section__title-logo" src={logoMarkImage.src} alt="歌楽ひろば" />{' '}
-              今後の予定
-            </>
-          ) : (
-            section.title
-          )}
-        </h2>
+        {section.title && (
+          <h2 className="section__title">
+            {section.id === 'about' ? (
+              <>
+                <img className="section__title-logo" src={logoMarkImage.src} alt="歌楽ひろば" /> とは
+              </>
+            ) : section.id === 'achievements' ? (
+              <>
+                <img className="section__title-logo" src={logoMarkImage.src} alt="歌楽ひろば" />{' '}
+                {section.title}
+              </>
+            ) : section.id === 'profile' ? (
+              <>
+                <span className="section__title-brush">{section.title}</span>
+                {section.bodyImage && (
+                  <img
+                    className="section__title-photo"
+                    src={section.bodyImage.src}
+                    alt={section.bodyImage.alt}
+                  />
+                )}
+              </>
+            ) : section.id === 'schedule' ? (
+              <>
+                <img className="section__title-logo" src={logoMarkImage.src} alt="歌楽ひろば" />{' '}
+                今後の予定
+              </>
+            ) : (
+              section.title
+            )}
+          </h2>
+        )}
         {highlightIndex >= 0 && section.leadHighlight ? (
           <p className="section__lead">
             {wrapJa(section.lead!.slice(0, highlightIndex))}

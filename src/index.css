@@ -172,7 +172,7 @@ a {
 .hero__logo-wrap {
   position: absolute;
   left: 50%;
-  top: 39%;
+  top: 42%;
   transform: translate(-50%, -50%);
   z-index: 1;
   width: 100%;
@@ -583,7 +583,6 @@ a {
   -webkit-text-fill-color: #ff6a00;
   -webkit-text-stroke: 2px #ffe4bd;
   paint-order: stroke fill;
-  text-shadow: 0 3px 8px rgba(30, 20, 15, 0.35);
   animation: logo-scale-pulse 3s ease-in-out infinite;
 }
 
@@ -961,6 +960,12 @@ a {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.achievement-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .scroll-dots {
@@ -1109,6 +1114,12 @@ a {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.photo-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .photo-scroll__img {

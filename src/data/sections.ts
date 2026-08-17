@@ -364,9 +364,10 @@ export const sections: SiteSection[] = [
   },
   {
     id: 'contact',
-    title: '問い合わせ先',
-    lead: '◆お問い合わせ、ご依頼◆',
-    body: ['あいたひめ'],
+    title: '',
+    navLabel: '問い合わせ先',
+    lead: 'お問い合わせ・ご依頼はこちらから',
+    body: [],
     links: [
       { label: 'TEL：090-6876-5725', href: 'tel:09068765725' },
       { label: 'Mail：hakodate.aita@gmail.com', href: 'mailto:hakodate.aita@gmail.com' },
