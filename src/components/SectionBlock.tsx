@@ -87,7 +87,16 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
                   ? { target: '_blank', rel: 'noopener noreferrer' }
                   : {})}
               >
-                <span className="section__link-text">{link.label}</span>
+                <span
+                  className={`section__link-text${link.mobileLabel ? ' section__link-text--desktop' : ''}`}
+                >
+                  {link.label}
+                </span>
+                {link.mobileLabel && (
+                  <span className="section__link-text section__link-text--mobile">
+                    {link.mobileLabel}
+                  </span>
+                )}
                 {link.image && (
                   <img className="section__link-image" src={link.image.src} alt={link.image.alt} />
                 )}

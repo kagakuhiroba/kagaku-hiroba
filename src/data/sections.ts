@@ -3,6 +3,7 @@ export interface ContactLink {
   href: string;
   variant?: 'pattern';
   image?: GalleryPhoto;
+  mobileLabel?: string;
 }
 
 export interface GalleryPhoto {
@@ -222,7 +223,8 @@ export const sections: SiteSection[] = [
     bodyImage: { src: asset('images/aitahime-self-intro.jpg'), alt: '笑顔で歌うあいたひめ' },
     links: [
       {
-        label: 'あいたひめ\nオリジナルソング',
+        label: 'あいたひめ\nオリジナルアルバム',
+        mobileLabel: 'あいたひめ\nオリジナル\nアルバム',
         href: 'https://www.tunecore.co.jp/artists?id=898042&lang=ja',
         variant: 'pattern',
         image: { src: asset('images/aitahime-album-2.jpg'), alt: 'オリジナルアルバム「わたしのうた I」' },
