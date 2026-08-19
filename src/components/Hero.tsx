@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
-import { heroImages, logoImage, noteSprites, sections } from '../data/sections';
+import { aitahimeLogoImage, heroImages, logoImage, noteSprites, sections } from '../data/sections';
 
 const SLIDE_INTERVAL_MS = 3000;
 const NOTE_COUNT = 7;
@@ -144,9 +144,21 @@ export default function Hero() {
               }}
             />
           </div>
-          <p className="hero__by">
-            <span className="hero__by-name">あいたひめ</span>
-          </p>
+          <div className="hero__logo-frame hero__logo-frame--by">
+            <img
+              className="hero__logo hero__logo--by"
+              src={aitahimeLogoImage.src}
+              alt={aitahimeLogoImage.alt}
+            />
+            <div
+              className="hero__logo-shine"
+              aria-hidden="true"
+              style={{
+                WebkitMaskImage: `url(${aitahimeLogoImage.src})`,
+                maskImage: `url(${aitahimeLogoImage.src})`,
+              }}
+            />
+          </div>
         </div>
 
         <div className="hero__foot">

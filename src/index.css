@@ -286,24 +286,13 @@ a {
   }
 }
 
-.hero__by {
-  margin: 0.5rem 0 0;
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.4em;
+.hero__logo-frame--by {
+  margin-top: 0.1rem;
 }
 
-.hero__by-name {
-  color: var(--color-accent-orange);
-  letter-spacing: 0.16em;
-  font-size: clamp(1rem, 3.2vw, 1.5rem);
-  font-weight: 800;
-  text-transform: uppercase;
-  -webkit-text-stroke: 1.5px #fff;
-  paint-order: stroke fill;
-  text-shadow: 0 6px 14px rgba(30, 20, 15, 0.4);
+.hero__logo--by {
+  width: min(26vw, 160px);
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.3));
 }
 
 .hero__logo-frame {
@@ -720,7 +709,8 @@ a {
   background-repeat: repeat;
   background-size: 90px 90px;
   animation: dot-pattern-drift 9s linear infinite;
-  color: var(--color-text);
+  color: var(--color-accent-orange);
+  font-weight: 900;
   box-shadow: 0 10px 22px rgba(58, 46, 38, 0.14);
 }
 
@@ -1155,14 +1145,26 @@ a {
   display: none;
 }
 
-.photo-scroll__img {
+.photo-scroll__item {
   flex: 0 0 auto;
   width: min(78vw, 320px);
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
   scroll-snap-align: start;
+  display: block;
+  appearance: none;
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
   border-radius: 16px;
   box-shadow: 0 10px 24px rgba(58, 46, 38, 0.16);
+}
+
+.photo-scroll__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 16px;
 }
 
 /* ---------- Mascot ---------- */

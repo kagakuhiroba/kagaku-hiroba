@@ -120,6 +120,12 @@ export const logoImage2 = {
   alt: '歌楽ひろば',
 };
 
+// 最初のページの「あいたひめ」表記用ロゴ。
+export const aitahimeLogoImage = {
+  src: asset('images/aitahime-logo-transparent.png'),
+  alt: 'あいたひめ',
+};
+
 // 画面右下に常時表示するマスコットイラスト。
 export const mascotImages = {
   open: asset('images/hime-mascot-open.png'),

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { logoImage2, scheduleVenues, specialEvents } from '../data/sections';
+import { scheduleVenues, specialEvents } from '../data/sections';
 import { useScrollDots } from '../hooks/useScrollDots';
 import { wrapJa } from '../utils/wrapJa';
 import ScrollDots from './ScrollDots';
@@ -58,7 +58,6 @@ export default function ScheduleList() {
 
       <div className="special-events">
         <p className="special-events__label">
-          <img className="schedule-venue__logo" src={logoImage2.src} alt="歌楽ひろば" />
           <span className="schedule-venue__name">{wrapJa('特別編')}</span>
         </p>
         <div className="achievement-scroll" ref={specialEventsScroll.scrollRef}>
