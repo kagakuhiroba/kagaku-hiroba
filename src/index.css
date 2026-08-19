@@ -1014,7 +1014,7 @@ a {
   height: 100%;
   object-fit: cover;
   filter: blur(6px);
-  opacity: 0.35;
+  opacity: 0.55;
   transform: scale(1.1);
 }
 
