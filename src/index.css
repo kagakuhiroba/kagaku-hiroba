@@ -788,11 +788,23 @@ a {
 }
 
 .schedule-venue__name {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 900;
   color: var(--color-text);
   word-break: keep-all;
   overflow-wrap: anywhere;
+}
+
+.schedule-venue--g-square .schedule-venue__name {
+  color: #f5a623;
+}
+
+.schedule-venue--kuumin .schedule-venue__name {
+  color: #8bc34a;
+}
+
+.schedule-venue--shimin-kaikan .schedule-venue__name {
+  color: #9b59b6;
 }
 
 .schedule-venue__suffix {
@@ -1204,7 +1216,7 @@ a {
   }
 
   .schedule-venue__name {
-    font-size: 1.02rem;
+    font-size: 1.18rem;
   }
 
   #achievements .achievement-card__photo {

@@ -33,7 +33,7 @@ export default function ScheduleList() {
           <button
             key={venue.id}
             type="button"
-            className="schedule-venue"
+            className={`schedule-venue schedule-venue--${venue.id}`}
             onClick={() => setActiveId(venue.id)}
           >
             <img className="schedule-venue__logo" src={logoImage2.src} alt="歌楽ひろば" />
