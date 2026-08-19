@@ -791,25 +791,31 @@ a {
   font-size: 1.5rem;
   font-weight: 900;
   color: var(--color-text);
+  -webkit-text-fill-color: var(--color-text);
+  -webkit-text-stroke: 0.6px #1a1005;
+  paint-order: stroke fill;
   word-break: keep-all;
   overflow-wrap: anywhere;
 }
 
 .schedule-venue--g-square .schedule-venue__name {
   color: #f5a623;
+  -webkit-text-fill-color: #f5a623;
 }
 
 .schedule-venue--kuumin .schedule-venue__name {
   color: #8bc34a;
+  -webkit-text-fill-color: #8bc34a;
 }
 
 .schedule-venue--shimin-kaikan .schedule-venue__name {
   color: #9b59b6;
+  -webkit-text-fill-color: #9b59b6;
 }
 
 .schedule-venue__suffix {
-  font-size: 0.78rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 800;
   color: var(--color-text-soft);
   word-break: keep-all;
   overflow-wrap: anywhere;
