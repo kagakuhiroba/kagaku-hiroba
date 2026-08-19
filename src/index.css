@@ -642,6 +642,7 @@ a {
   );
   background-size: 300% 100%;
   background-position: 200% 0;
+  background-repeat: no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
   pointer-events: none;
