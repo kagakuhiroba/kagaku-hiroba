@@ -81,13 +81,16 @@ export default function SectionBlock({ section }: { section: SiteSection }) {
             {section.links.map((link) => (
               <a
                 key={link.href}
-                className={`section__link${link.variant === 'pattern' ? ' section__link--pattern' : ''}`}
+                className={`section__link${link.variant === 'pattern' ? ' section__link--pattern' : ''}${link.image ? ' section__link--with-image' : ''}`}
                 href={link.href}
                 {...(link.href.startsWith('http')
                   ? { target: '_blank', rel: 'noopener noreferrer' }
                   : {})}
               >
-                {link.label}
+                <span className="section__link-text">{link.label}</span>
+                {link.image && (
+                  <img className="section__link-image" src={link.image.src} alt={link.image.alt} />
+                )}
               </a>
             ))}
           </div>

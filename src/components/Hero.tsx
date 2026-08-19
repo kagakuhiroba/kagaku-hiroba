@@ -145,7 +145,9 @@ export default function Hero() {
             />
           </div>
           <p className="hero__by">
-            <span className="hero__by-name">あいたひめ</span>
+            <span className="hero__by-name" data-text="あいたひめ">
+              あいたひめ
+            </span>
           </p>
         </div>
 
