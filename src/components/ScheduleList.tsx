@@ -36,11 +36,19 @@ export default function ScheduleList() {
             className={`schedule-venue schedule-venue--${venue.id}`}
             onClick={() => setActiveId(venue.id)}
           >
-            <img className="schedule-venue__logo" src={logoImage2.src} alt="歌楽ひろば" />
             <span className="schedule-venue__text">
               <span className="schedule-venue__name">{wrapJa(venue.venue)}</span>
               <span className="schedule-venue__suffix">{wrapJa('開催スケジュール')}</span>
             </span>
+            {venue.images[0] && (
+              <img
+                className="schedule-venue__thumb"
+                src={venue.images[0].src}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+              />
+            )}
             <span className="schedule-venue__arrow" aria-hidden="true">
               ›
             </span>

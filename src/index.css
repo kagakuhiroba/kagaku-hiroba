@@ -779,6 +779,15 @@ a {
   flex-shrink: 0;
 }
 
+.schedule-venue__thumb {
+  height: 3.6rem;
+  width: 3.6rem;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(58, 46, 38, 0.22);
+}
+
 .schedule-venue__text {
   display: flex;
   flex-direction: column;
@@ -788,11 +797,11 @@ a {
 }
 
 .schedule-venue__name {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 900;
   color: var(--color-text);
   -webkit-text-fill-color: var(--color-text);
-  -webkit-text-stroke: 0.6px #1a1005;
+  -webkit-text-stroke: 1.2px #1a1005;
   paint-order: stroke fill;
   word-break: keep-all;
   overflow-wrap: anywhere;
@@ -1124,6 +1133,12 @@ a {
   color: var(--color-text);
 }
 
+.special-events__label .schedule-venue__name {
+  color: #ef6fa3;
+  -webkit-text-fill-color: #ef6fa3;
+  -webkit-text-stroke: 0.6px #1a1005;
+}
+
 .photo-scroll {
   display: flex;
   gap: 0.85rem;
@@ -1222,7 +1237,12 @@ a {
   }
 
   .schedule-venue__name {
-    font-size: 1.18rem;
+    font-size: 1.35rem;
+  }
+
+  .schedule-venue__thumb {
+    height: 2.8rem;
+    width: 2.8rem;
   }
 
   #achievements .achievement-card__photo {
