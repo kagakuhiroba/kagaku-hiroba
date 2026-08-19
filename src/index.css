@@ -793,7 +793,7 @@ a {
 
   .section__link-text--mobile {
     display: inline;
-    font-size: clamp(1.15rem, 5.2vw, 1.4rem);
+    font-size: clamp(1.35rem, 6.2vw, 1.6rem);
   }
 }
 
