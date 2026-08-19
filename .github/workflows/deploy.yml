@@ -23,8 +23,14 @@ jobs:
       - run: npm ci
       - run: npm run build
 
+      - name: Assemble publish directory
+        run: |
+          mkdir -p publish/aita-hime
+          cp -r dist/. publish/aita-hime/
+          cp root-redirect.html publish/index.html
+          cp public/favicon.svg publish/favicon.svg
+
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          destination_dir: aita-hime
+          publish_dir: ./publish
