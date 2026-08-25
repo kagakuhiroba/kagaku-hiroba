@@ -24,7 +24,7 @@ export function InkSplatterDefs() {
           <circle cx="-22" cy="10" r="14" />
           <circle cx="20" cy="-8" r="13" />
         </g>
-        <path id="ink-spike" d="M24,-8 C34,-7 55,-4 78,0 C55,4 34,7 24,8 C21,4 21,-4 24,-8 Z" />
+        <circle id="ink-satellite" cx="46" cy="0" r="15" />
         <g id="ink-fling">
           <circle cx="70" cy="0" r="6" />
           <circle cx="92" cy="-8" r="4.2" />
@@ -50,7 +50,7 @@ export function InkSplatterDefs() {
 
 type InkVariant = 'a' | 'b' | 'c'
 
-const SPIKE_CONFIG: Record<InkVariant, { angle: number; scale: number }[]> = {
+const SATELLITE_CONFIG: Record<InkVariant, { angle: number; scale: number }[]> = {
   a: [
     { angle: 20, scale: 1.0 },
     { angle: 75, scale: 0.6 },
@@ -106,8 +106,8 @@ export function InkSplash({
   return (
     <g className={`ink-splash ink-splash--${color}${className ? ` ${className}` : ''}`} transform={transform}>
       <use href={`#ink-core-${variant}`} />
-      {SPIKE_CONFIG[variant].map((spike, i) => (
-        <use key={i} href="#ink-spike" transform={`rotate(${spike.angle}) scale(${spike.scale})`} />
+      {SATELLITE_CONFIG[variant].map((satellite, i) => (
+        <use key={i} href="#ink-satellite" transform={`rotate(${satellite.angle}) scale(${satellite.scale})`} />
       ))}
       {withDrip && <use href="#ink-fling" transform={`rotate(${FLING_ANGLE[variant]})`} />}
       {withDots && <use href="#ink-dots" x="-88" y="52" />}

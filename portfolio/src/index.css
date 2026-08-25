@@ -294,13 +294,50 @@ ul {
     opacity: 1;
     transform: scale(1);
     clip-path: inset(0 0 0 0);
+    animation-timing-function: cubic-bezier(0.6, 0, 0.9, 0.2);
   }
-  78% {
+  55% {
+    opacity: 1;
+    transform: scale(1);
+    clip-path: inset(6% 0 0 22%);
+    animation-timing-function: ease;
+  }
+  59% {
+    opacity: 1;
+    transform: scale(1);
+    clip-path: inset(10% 0 0 26%);
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.4, 1);
+  }
+  64% {
+    opacity: 1;
+    transform: scale(1);
+    clip-path: inset(40% 0 0 34%);
+    animation-timing-function: cubic-bezier(0.7, 0, 0.85, 0.3);
+  }
+  68% {
+    opacity: 1;
+    transform: scale(1);
+    clip-path: inset(44% 0 0 60%);
+    animation-timing-function: ease-in-out;
+  }
+  73% {
+    opacity: 1;
+    transform: scale(1);
+    clip-path: inset(72% 0 0 65%);
+    animation-timing-function: cubic-bezier(0.3, 0.9, 0.5, 1);
+  }
+  77% {
+    opacity: 1;
+    transform: scale(1);
+    clip-path: inset(76% 0 0 92%);
+    animation-timing-function: cubic-bezier(0.8, 0, 0.95, 0.25);
+  }
+  80% {
     opacity: 1;
     transform: scale(1);
     clip-path: inset(100% 0 0 100%);
   }
-  82%,
+  84%,
   100% {
     opacity: 0;
     transform: scale(0.5);
