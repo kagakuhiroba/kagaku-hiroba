@@ -2,7 +2,7 @@ export function InkSplatterDefs() {
   return (
     <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
       <defs>
-        <g id="ink-cluster">
+        <g id="ink-cluster-a">
           <circle cx="0" cy="0" r="38" />
           <circle cx="44" cy="-15" r="29" />
           <circle cx="-38" cy="18" r="26" />
@@ -18,6 +18,35 @@ export function InkSplatterDefs() {
           <circle cx="-66" cy="6" r="10" />
           <circle cx="34" cy="63" r="10" />
           <circle cx="70" cy="6" r="9" />
+        </g>
+        <g id="ink-cluster-b">
+          <circle cx="0" cy="0" r="34" />
+          <circle cx="55" cy="8" r="30" />
+          <circle cx="-50" cy="-5" r="27" />
+          <circle cx="85" cy="-12" r="19" />
+          <circle cx="-82" cy="14" r="17" />
+          <circle cx="20" cy="38" r="21" />
+          <circle cx="-25" cy="-34" r="19" />
+          <circle cx="62" cy="-32" r="15" />
+          <circle cx="-62" cy="32" r="14" />
+          <circle cx="103" cy="10" r="11" />
+          <circle cx="-102" cy="-9" r="10" />
+          <circle cx="32" cy="-48" r="12" />
+          <circle cx="-38" cy="48" r="11" />
+        </g>
+        <g id="ink-cluster-c">
+          <circle cx="0" cy="0" r="36" />
+          <circle cx="10" cy="52" r="28" />
+          <circle cx="-12" cy="-50" r="26" />
+          <circle cx="18" cy="98" r="19" />
+          <circle cx="-20" cy="-93" r="17" />
+          <circle cx="-8" cy="20" r="23" />
+          <circle cx="30" cy="-22" r="18" />
+          <circle cx="-30" cy="16" r="16" />
+          <circle cx="5" cy="132" r="11" />
+          <circle cx="-5" cy="-128" r="10" />
+          <circle cx="36" cy="62" r="13" />
+          <circle cx="-36" cy="-58" r="12" />
         </g>
         <g id="ink-drip">
           <circle cx="0" cy="0" r="9" />
@@ -42,22 +71,35 @@ export function InkSplatterDefs() {
   )
 }
 
+type InkVariant = 'a' | 'b' | 'c'
+
 type SplashProps = {
   className?: string
   x: number
   y: number
   scale?: number
   rotate?: number
+  variant?: InkVariant
   color: 'blue' | 'orange'
   withDrip?: boolean
   withDots?: boolean
 }
 
-export function InkSplash({ className, x, y, scale = 1, rotate = 0, color, withDrip = true, withDots = true }: SplashProps) {
+export function InkSplash({
+  className,
+  x,
+  y,
+  scale = 1,
+  rotate = 0,
+  variant = 'a',
+  color,
+  withDrip = true,
+  withDots = true,
+}: SplashProps) {
   const transform = `translate(${x} ${y}) rotate(${rotate}) scale(${scale})`
   return (
     <g className={`ink-splash ink-splash--${color}${className ? ` ${className}` : ''}`} transform={transform}>
-      <use href="#ink-cluster" />
+      <use href={`#ink-cluster-${variant}`} />
       {withDrip && <use href="#ink-drip" x="68" y="38" />}
       {withDots && <use href="#ink-dots" x="-88" y="52" />}
       {withDots && <use href="#ink-dots" x="86" y="-68" transform="rotate(140)" />}
@@ -70,9 +112,11 @@ type CornerSplashProps = {
   position: string
   color: 'blue' | 'orange'
   size?: number
+  variant?: InkVariant
+  rotate?: number
 }
 
-export function CornerSplash({ position, color, size = 220 }: CornerSplashProps) {
+export function CornerSplash({ position, color, size = 220, variant = 'a', rotate = 0 }: CornerSplashProps) {
   return (
     <svg
       className={`corner-splash corner-splash--${position}`}
@@ -81,7 +125,7 @@ export function CornerSplash({ position, color, size = 220 }: CornerSplashProps)
       viewBox="-145 -145 290 290"
       aria-hidden="true"
     >
-      <InkSplash x={0} y={0} color={color} />
+      <InkSplash x={0} y={0} color={color} variant={variant} rotate={rotate} />
     </svg>
   )
 }
