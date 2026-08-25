@@ -7,12 +7,12 @@ export function Hero() {
 
   return (
     <section id="top" className="hero">
-      <CornerSplash position="hero-tl" color="blue" size={700} />
-      <CornerSplash position="hero-br" color="orange" size={700} />
-      <CornerSplash position="hero-tr" color="orange" size={340} />
-      <CornerSplash position="hero-bl" color="blue" size={340} />
-      <CornerSplash position="hero-top" color="orange" size={260} />
-      <CornerSplash position="hero-bottom" color="blue" size={260} />
+      <CornerSplash position="hero-tl" color="blue" size={680} variant="a" rotate={-8} />
+      <CornerSplash position="hero-br" color="orange" size={610} variant="b" rotate={16} />
+      <CornerSplash position="hero-tr" color="orange" size={300} variant="c" rotate={28} />
+      <CornerSplash position="hero-bl" color="blue" size={380} variant="b" rotate={-22} />
+      <CornerSplash position="hero-top" color="orange" size={230} variant="a" rotate={45} />
+      <CornerSplash position="hero-bottom" color="blue" size={290} variant="c" rotate={-38} />
       <div className="hero__content">
         <p className="hero__eyebrow">Photographer / Videographer</p>
         <h1 ref={ref} className={`hero__title${visible ? ' hero__title--visible' : ''}`}>

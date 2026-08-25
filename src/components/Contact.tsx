@@ -12,9 +12,9 @@ export function Contact() {
 
   return (
     <section id="contact" className="section section--tinted">
-      <CornerSplash position="contact" color="orange" size={460} />
-      <CornerSplash position="contact-alt" color="blue" size={260} />
-      <CornerSplash position="contact-top" color="orange" size={220} />
+      <CornerSplash position="contact" color="orange" size={480} variant="a" rotate={22} />
+      <CornerSplash position="contact-alt" color="blue" size={240} variant="c" rotate={-30} />
+      <CornerSplash position="contact-top" color="orange" size={210} variant="b" rotate={60} />
       <div ref={ref} className={`section__inner contact fade-scroll${visible ? ' fade-scroll--visible' : ''}`}>
         <h2 className="section__title">
           <span className="section__title-accent">Contact</span> お問い合わせ
