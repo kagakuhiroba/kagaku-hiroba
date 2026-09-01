@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kagakuhiroba.github.io/kagaku-hiroba/aita-hime/sitemap.xml
